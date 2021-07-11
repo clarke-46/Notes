@@ -17,6 +17,6 @@
     <style name="MyTheme.Maroon" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/maroon</item>
         <item name="colorPrimaryDark">@color/darkMaroon</item>
-        <item name="colorAccent">@color/orangeAccent</item>
+        <item name="colorAccent">@color/orange</item>
     </style>
 </resources>
