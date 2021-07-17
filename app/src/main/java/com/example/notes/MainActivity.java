@@ -1,13 +1,14 @@
 package com.example.notes;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -42,17 +43,36 @@ public class MainActivity extends AppCompatActivity {
         adapter = new NoteDataAdapter(this, notes);
         list.setAdapter(adapter);
 
-        list.setOnItemLongClickListener((parent, view, position, id) -> {
-            adapter.deleteNote(position);
-            Toast.makeText(MainActivity.this, R.string.toastNoteDeleted, Toast.LENGTH_LONG).show();
-            return true;
-        });
-
         list.setOnItemClickListener((parent, view, position, id) -> {
             NoteData noteData = adapter.getItem(position);
             Toast.makeText(MainActivity.this, noteData.getTitle() + "\n"
                             + noteData.getSubtitle() + "\n" + noteData.getDeadline(),
                     Toast.LENGTH_LONG).show();
+        });
+
+        deletingNote();
+    }
+
+    private void deletingNote() {
+        list.setOnItemLongClickListener((parent, view, position, id) -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            builder.setTitle(R.string.deletingNote);
+
+            builder.setPositiveButton(R.string.yes, (dialog, i) -> {
+                adapter.deleteNote(position);
+                Toast.makeText(MainActivity.this, R.string.toastNoteDeleted,
+                        Toast.LENGTH_LONG).show();
+            });
+
+            builder.setNegativeButton(R.string.not, (dialog, i) -> {
+                Toast.makeText(MainActivity.this, R.string.toastCancelDeletion,
+                        Toast.LENGTH_LONG).show();
+                dialog.cancel();
+            });
+
+            AlertDialog dialog = builder.create();
+            dialog.show();
+            return true;
         });
     }
 
