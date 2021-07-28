@@ -1,5 +1,6 @@
 package com.example.notes;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -11,12 +12,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.notes.activities.AddingNewNoteActivity;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -31,11 +34,13 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     public static final String EXTRA_DEADLINE_CHECKBOX = "CHECKBOX";
     public static final String EXTRA_DEADLINE = "DEADLINE";
     public static boolean savingUpdate = false;
+    private final Calendar currentCalendar = Calendar.getInstance();
 
     public NoteAdapter(Context context) {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void setNotes(List<Note> noteList) {
         this.noteList = noteList;
         notifyDataSetChanged();
@@ -74,6 +79,16 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
             holder.deadlineString.setText(getDate(deadline, context));
             holder.deadlineString.setVisibility(View.VISIBLE);
         }
+
+        Context deadlineStringContext = holder.deadlineString.getContext();
+        if ((currentCalendar.getTimeInMillis() - deadline) > 0) {
+            holder.deadlineString.setTextColor(ContextCompat.getColor(deadlineStringContext, R.color.red));
+        } else if ((currentCalendar.getTimeInMillis() - deadline) < 0 &&
+                deadline - (currentCalendar.getTimeInMillis()) < 86400000) {
+            holder.deadlineString.setTextColor(ContextCompat.getColor(deadlineStringContext, R.color.yellow));
+        } else {
+            holder.deadlineString.setTextColor(ContextCompat.getColor(deadlineStringContext, R.color.darkerGray));
+        }
     }
 
     private String getDate(long time, Context context) {
@@ -105,6 +120,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         private final TextView subtitleString;
         private final TextView deadlineString;
 
+        @SuppressLint("NotifyDataSetChanged")
         private NoteViewHolder(View itemView) {
             super(itemView);
             cardView = itemView.findViewById(R.id.cardView);
