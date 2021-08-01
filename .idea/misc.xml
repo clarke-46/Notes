@@ -3,8 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/drawable/ic_baseline_calendar_24.xml" value="0.2169230769230769" />
+        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.2169230769230769" />
+        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/drawable/ic_baseline_visibility_24.xml" value="0.2169230769230769" />
+        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/drawable/ic_baseline_visibility_off_24.xml" value="0.2169230769230769" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/activity_adding_new_note.xml" value="0.22" />
-        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/activity_new_password.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/activity_password.xml" value="0.22" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/activity_setting.xml" value="0.22" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/item_recyclerview.xml" value="0.22" />

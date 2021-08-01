@@ -5,6 +5,8 @@
     <string name="toastPasswordIncorrect">Введён неправильный пин-код!</string>
 
     <string name="settings">Настройки</string>
+    <string name="safety">Безопасность</string>
+    <string name="changePassword">Изменить пароль</string>
     <string name="newPinTxt">Новый пин-код:</string>
     <string name="fourDigits">(должен состоять из 4 цифр)</string>
     <string name="save">Сохранить</string>
@@ -22,6 +24,11 @@
     <string name="deletingNote">Вы хотите удалить заметку:</string>
     <string name="yes">Да</string>
     <string name="not">Нет</string>
-    <string name="editingNote">Редактирование заметки</string>
+    <string name="editingNote">Редактирование</string>
     <string name="addNote">Добавить заметку</string>
+    <string name="share">Поделиться</string>
+    <string name="title">Заголовок:</string>
+    <string name="content">Содержание:</string>
+    <string name="toastNoApp">Нет приложения для отправки</string>
+    <string name="toastChooseApp">Выберите приложение для отправки</string>
 </resources>

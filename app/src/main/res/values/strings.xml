@@ -16,6 +16,8 @@
     <string name="toastPasswordIncorrect">Incorrect pin-code!</string>
 
     <string name="settings">Settings</string>
+    <string name="safety">Safety</string>
+    <string name="changePassword">Change password</string>
     <string name="newPinTxt">New pin-code:</string>
     <string name="fourDigits">(must consist of 4 digits)</string>
     <string name="save">Save</string>
@@ -35,4 +37,9 @@
     <string name="not">Not</string>
     <string name="editingNote">Editing the note</string>
     <string name="addNote">Add a note</string>
+    <string name="share">Share</string>
+    <string name="title">Title:</string>
+    <string name="content">Content:</string>
+    <string name="toastNoApp">No app to send</string>
+    <string name="toastChooseApp">Choose app to send</string>
 </resources>

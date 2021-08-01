@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/MyTheme.Maroon">
         <activity
+            android:name=".activities.NewPasswordActivity"
+            android:exported="true" />
+        <activity
             android:name=".activities.AddingNewNoteActivity"
             android:label="@string/newNote" />
         <activity
