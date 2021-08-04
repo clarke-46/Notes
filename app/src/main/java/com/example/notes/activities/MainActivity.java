@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.notes.NoteAdapter;
 import com.example.notes.NoteViewModel;
 import com.example.notes.R;
+import com.example.notes.Themes;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Themes.applyTheme(this);
         setContentView(R.layout.activity_main);
 
         init();

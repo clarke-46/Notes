@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.notes.App;
 import com.example.notes.R;
+import com.example.notes.Themes;
 
 import java.util.Objects;
 
@@ -28,6 +29,7 @@ public class NewPasswordActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Themes.applyTheme(this);
         setContentView(R.layout.activity_new_password);
 
         init();

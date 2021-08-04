@@ -12,6 +12,20 @@
     <string name="save">Сохранить</string>
     <string name="toastEnterPin">Введите пароль</string>
 
+    <string name="design">Оформление</string>
+    <string name="darkMode">Тёмный режим</string>
+    <string name="followSystem">Системный</string>
+    <string name="on">Вкл.</string>
+    <string name="off">Выкл.</string>
+    <string name="colorTheme">Цветовая тема</string>
+    <string name="themeSelection">Выбор темы</string>
+    <string name="toastThemeSelected">Выбрана тема:</string>
+    <string name="maroonColor">Бордовая</string>
+    <string name="emeraldColor">Изумрудная</string>
+    <string name="blackColor">Чёрная</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Отмена</string>
+
     <string name="newNote">Новая заметка</string>
     <string name="titleAdding">Заголовок заметки</string>
     <string name="subtitleAdding">Тело заметки</string>

@@ -21,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.notes.Note;
 import com.example.notes.R;
+import com.example.notes.Themes;
 
 import java.util.Calendar;
 import java.util.Objects;
@@ -50,6 +51,7 @@ public class AddingNewNoteActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Themes.applyTheme(this);
         setContentView(R.layout.activity_adding_new_note);
 
         init();

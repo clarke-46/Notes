@@ -19,4 +19,10 @@
         <item name="colorPrimaryDark">@color/darkMaroonNight</item>
         <item name="colorAccent">@color/orange</item>
     </style>
+
+    <style name="MyTheme.Emerald" parent="MyTheme">
+        <item name="colorPrimary">@color/emeraldNight</item>
+        <item name="colorPrimaryDark">@color/darkEmeraldNight</item>
+        <item name="colorAccent">@color/grayBlue</item>
+    </style>
 </resources>

@@ -23,6 +23,20 @@
     <string name="save">Save</string>
     <string name="toastEnterPin">Enter pin-code</string>
 
+    <string name="design">Design</string>
+    <string name="darkMode">Dark mode</string>
+    <string name="followSystem">Follow system</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
+    <string name="colorTheme">Color theme</string>
+    <string name="themeSelection">Theme selection</string>
+    <string name="toastThemeSelected">Theme selected:</string>
+    <string name="maroonColor">Maroon</string>
+    <string name="emeraldColor">Emerald</string>
+    <string name="blackColor">Black</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+
     <string name="newNote">New note</string>
     <string name="titleAdding">Note title</string>
     <string name="subtitleAdding">Note body</string>

@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.notes.App;
 import com.example.notes.R;
+import com.example.notes.Themes;
 
 public class PasswordActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -24,6 +25,7 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Themes.applyTheme(this);
         setContentView(R.layout.activity_password);
 
         init();
