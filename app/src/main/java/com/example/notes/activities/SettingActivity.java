@@ -1,6 +1,7 @@
 package com.example.notes.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -8,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 
 import com.example.notes.R;
 import com.example.notes.Themes;
@@ -19,9 +21,13 @@ public class SettingActivity extends AppCompatActivity {
     private TextView changePasswordText;
     private TextView darkModeText;
     private TextView themeText;
+    private SwitchCompat requestPasswordSwitch;
 
     private int selectedModeIndex = 0;
     private int selectedThemeIndex = 0;
+
+    public static final String HAVING_PASSWORD_KEY = "thereIsPassword";
+    public static final String IS_CHECKED = "isChecked";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +36,7 @@ public class SettingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_setting);
 
         init();
+        havingPassword();
         darkLightMode();
         changeTheme();
     }
@@ -44,6 +51,23 @@ public class SettingActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+    }
+
+    private void havingPassword() {
+        requestPasswordSwitch = findViewById(R.id.requestPasswordSwitch);
+
+        SharedPreferences havingPasswordPreferences = getSharedPreferences(HAVING_PASSWORD_KEY,
+                MODE_PRIVATE);
+
+        requestPasswordSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            // при изменении состояния switch новое значение
+            // будет сразу записано в соответствующее "поле" в SharedPreferences
+            SharedPreferences.Editor editor = havingPasswordPreferences.edit();
+            editor.putBoolean(IS_CHECKED, isChecked);
+            editor.apply();
+        });
+
+        requestPasswordSwitch.setChecked(havingPasswordPreferences.getBoolean(IS_CHECKED, false));
     }
 
     private void darkLightMode() {
@@ -90,6 +114,7 @@ public class SettingActivity extends AppCompatActivity {
 
         String[] themes = {getResources().getString(R.string.maroonColor),
                 getResources().getString(R.string.emeraldColor),
+                getResources().getString(R.string.lightGreenColor),
                 getResources().getString(R.string.blackColor)};
 
         themeText.setOnClickListener(v -> {
@@ -104,6 +129,10 @@ public class SettingActivity extends AppCompatActivity {
                             case "Emerald":
                             case "Изумрудная":
                                 selectedThemeIndex = 2;
+                                break;
+                            case "Light green":
+                            case "Светло-зелёная":
+                                selectedThemeIndex = 4;
                                 break;
                             case "Black":
                             case "Чёрная":

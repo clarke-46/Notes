@@ -25,6 +25,12 @@
     <style name="MyTheme.Emerald" parent="MyTheme">
         <item name="colorPrimary">@color/emerald</item>
         <item name="colorPrimaryDark">@color/darkEmerald</item>
-        <item name="colorAccent">@color/grayBlue</item>
+        <item name="colorAccent">@color/lavenderBlue</item>
+    </style>
+
+    <style name="MyTheme.LightGreen" parent="Theme.AppCompat.DayNight">
+        <item name="colorPrimary">@color/pastelGreenPaler</item>
+        <item name="colorPrimaryDark">@color/pastelGreen</item>
+        <item name="colorAccent">@color/lightGreen</item>
     </style>
 </resources>

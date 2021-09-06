@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -8,7 +9,9 @@
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="7dp">
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,8 +26,8 @@
                 android:ellipsize="end"
                 android:textSize="17sp"
                 style="@style/TextAppearance.MaterialComponents.Headline6"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp" />
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp" />
 
             <TextView
                 android:id="@+id/subtitleString"
@@ -33,7 +36,9 @@
                 android:maxLines="3"
                 android:ellipsize="end"
                 android:textSize="17sp"
-                android:paddingBottom="8dp" />
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:paddingBottom="5dp"/>
 
             <TextView
                 android:id="@+id/deadlineString"
@@ -43,7 +48,9 @@
                 style="@style/TextAppearance.MaterialComponents.Overline"
                 android:textStyle="bold"
                 android:textColor="@color/darkerGray"
-                android:paddingBottom="5dp" />
+                android:paddingStart="5dp"
+                android:paddingBottom="5dp"
+                tools:ignore="RtlSymmetry" />
 
         </LinearLayout>
 

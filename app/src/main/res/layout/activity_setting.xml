@@ -16,13 +16,34 @@
         android:textColor="?android:colorAccent"
         tools:ignore="RtlSymmetry" />
 
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/requestPasswordSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="7dp"
+        android:text="@string/requestPassword"
+        android:textSize="19sp"
+        android:textColor="?attr/colorControlNormal" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="17dp"
+        android:text="@string/requestPasswordExplanation"
+        android:textSize="15sp" />
+
     <TextView
         android:id="@+id/changePasswordText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20dp"
         android:text="@string/changePassword"
-        android:textSize="20sp" />
+        android:textSize="19sp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -40,7 +61,7 @@
         android:layout_height="wrap_content"
         android:padding="20dp"
         android:text="@string/darkMode"
-        android:textSize="20sp" />
+        android:textSize="19sp" />
 
     <TextView
         android:id="@+id/colorThemeText"
@@ -48,6 +69,6 @@
         android:layout_height="wrap_content"
         android:padding="20dp"
         android:text="@string/colorTheme"
-        android:textSize="20sp" />
+        android:textSize="19sp" />
 
 </LinearLayout>

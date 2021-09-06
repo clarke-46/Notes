@@ -17,15 +17,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp">
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:orientation="vertical">
 
             <EditText
                 android:id="@+id/titleAdding"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="5dp"
                 android:hint="@string/titleAdding" />
 
             <EditText
@@ -33,21 +33,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp"
                 android:hint="@string/subtitleAdding" />
 
             <CheckBox
                 android:id="@+id/deadlineCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/thereIsDeadline" />
+                android:layout_marginStart="7dp"
+                android:paddingStart="5dp"
+                android:text="@string/thereIsDeadline"
+                android:textSize="17sp"
+                tools:ignore="RtlSymmetry" />
 
             <LinearLayout
                 android:id="@+id/linearLayout"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
                 android:layout_marginTop="10dp"
-                android:paddingEnd="60dp"
                 android:orientation="horizontal"
                 tools:ignore="RtlSymmetry">
 
@@ -55,18 +59,17 @@
                     android:id="@+id/deadlineEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/deadline"
                     android:inputType="date" />
 
                 <ImageButton
                     android:id="@+id/deadlineCalendar"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:onClick="setTime"
-                    app:srcCompat="@drawable/ic_baseline_calendar_24" />
+                    app:srcCompat="@drawable/ic_baseline_calendar_24"
+                    tools:ignore="UsingOnClickInXml" />
 
             </LinearLayout>
 

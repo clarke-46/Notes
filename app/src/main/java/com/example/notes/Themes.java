@@ -69,6 +69,9 @@ public class Themes {
             case 3:
                 context.setTheme(R.style.MyTheme);
                 break;
+            case 4:
+                context.setTheme(R.style.MyTheme_LightGreen);
+                break;
             default:
                 break;
         }

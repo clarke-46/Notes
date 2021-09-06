@@ -21,5 +21,11 @@
     <color name="darkEmerald">#02605C</color>
     <color name="emeraldNight">#206A63</color>
     <color name="darkEmeraldNight">#024341</color>
-    <color name="grayBlue">#B0BCC3</color>
+    <color name="lavenderBlue">#C3C3F8</color>
+
+    <color name="lightGreen">#81C147</color>
+    <color name="pastelGreen">#BEE9B4</color>
+    <color name="pastelGreenPaler">#DCF3D6</color>
+    <color name="grayGreen">#789370</color>
+    <color name="grayGreenDarker">#657A5F</color>
 </resources>

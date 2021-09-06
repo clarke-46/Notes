@@ -1,6 +1,10 @@
 package com.example.notes.activities;
 
+import static com.example.notes.activities.SettingActivity.HAVING_PASSWORD_KEY;
+import static com.example.notes.activities.SettingActivity.IS_CHECKED;
+
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -21,6 +25,7 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
 
     private String password = "";
     public boolean firstTime;
+    boolean passwordOn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +34,7 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_password);
 
         init();
+        onOffPassword();
     }
 
     public void init() {
@@ -42,6 +48,20 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
         }
 
         initButtons();
+    }
+
+    public void onOffPassword() {
+        SharedPreferences havingPasswordPreferences = getSharedPreferences(HAVING_PASSWORD_KEY,
+                MODE_PRIVATE);
+        passwordOn = havingPasswordPreferences.getBoolean(IS_CHECKED, false);
+
+        if (passwordOn) {
+            init();
+        } else {
+            Intent intent = new Intent(PasswordActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     public void initButtons() {

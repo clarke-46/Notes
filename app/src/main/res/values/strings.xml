@@ -22,6 +22,8 @@
     <string name="fourDigits">(must consist of 4 digits)</string>
     <string name="save">Save</string>
     <string name="toastEnterPin">Enter pin-code</string>
+    <string name="requestPassword">Request the password</string>
+    <string name="requestPasswordExplanation">(If the password isn`t requested, it is still stored in the system. If you don`t remember your password, change it before enabling this feature.)</string>
 
     <string name="design">Design</string>
     <string name="darkMode">Dark mode</string>
@@ -33,13 +35,14 @@
     <string name="toastThemeSelected">Theme selected:</string>
     <string name="maroonColor">Maroon</string>
     <string name="emeraldColor">Emerald</string>
+    <string name="lightGreenColor">Light green</string>
     <string name="blackColor">Black</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
 
     <string name="newNote">New note</string>
     <string name="titleAdding">Note title</string>
-    <string name="subtitleAdding">Note body</string>
+    <string name="subtitleAdding">Text of the note</string>
     <string name="thereIsDeadline">There is a deadline</string>
     <string name="deadline">Deadline</string>
     <string name="toastNoteIsSaved">Note saved</string>

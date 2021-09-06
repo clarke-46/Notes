@@ -11,6 +11,8 @@
     <string name="fourDigits">(должен состоять из 4 цифр)</string>
     <string name="save">Сохранить</string>
     <string name="toastEnterPin">Введите пароль</string>
+    <string name="requestPassword">Запрашивать пароль</string>
+    <string name="requestPasswordExplanation">(Если пароль не запрашивается, он всё равно сохраняется в системе. Если Вы не помните свой пароль, измените его перед включением этой функции.)</string>
 
     <string name="design">Оформление</string>
     <string name="darkMode">Тёмный режим</string>
@@ -22,13 +24,14 @@
     <string name="toastThemeSelected">Выбрана тема:</string>
     <string name="maroonColor">Бордовая</string>
     <string name="emeraldColor">Изумрудная</string>
+    <string name="lightGreenColor">Светло-зелёная</string>
     <string name="blackColor">Чёрная</string>
     <string name="ok">OK</string>
     <string name="cancel">Отмена</string>
 
     <string name="newNote">Новая заметка</string>
     <string name="titleAdding">Заголовок заметки</string>
-    <string name="subtitleAdding">Тело заметки</string>
+    <string name="subtitleAdding">Текст заметки</string>
     <string name="thereIsDeadline">Есть дедлайн</string>
     <string name="deadline">Дедлайн</string>
     <string name="toastNoteIsSaved">Заметка сохранена</string>
