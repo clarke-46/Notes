@@ -1,5 +1,13 @@
 package com.example.notes.activities;
 
+import static com.example.notes.NoteAdapter.EXTRA_DEADLINE;
+import static com.example.notes.NoteAdapter.EXTRA_DEADLINE_CHECKBOX;
+import static com.example.notes.NoteAdapter.EXTRA_ID;
+import static com.example.notes.NoteAdapter.EXTRA_SUBTITLE;
+import static com.example.notes.NoteAdapter.EXTRA_TITLE;
+import static com.example.notes.NoteAdapter.savingUpdate;
+import static com.example.notes.activities.MainActivity.viewModel;
+
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -14,6 +22,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ScrollView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
@@ -26,26 +35,21 @@ import com.example.notes.Themes;
 import java.util.Calendar;
 import java.util.Objects;
 
-import static com.example.notes.NoteAdapter.EXTRA_DEADLINE;
-import static com.example.notes.NoteAdapter.EXTRA_DEADLINE_CHECKBOX;
-import static com.example.notes.NoteAdapter.EXTRA_ID;
-import static com.example.notes.NoteAdapter.EXTRA_SUBTITLE;
-import static com.example.notes.NoteAdapter.EXTRA_TITLE;
-import static com.example.notes.NoteAdapter.savingUpdate;
-import static com.example.notes.activities.MainActivity.viewModel;
-
 public class AddingNewNoteActivity extends AppCompatActivity {
 
-    private ScrollView scrollView;
+//    private ScrollView scrollView;
     private EditText titleAdding;
     private EditText subtitleAdding;
     private CheckBox deadlineCheckBox;
     private EditText deadlineEditText;
     private ImageButton deadlineCalendar;
+    private RelativeLayout deadlineLayout;
 
     private final Calendar calendar = Calendar.getInstance();
     private long deadlineDate;
     public int idUpdate;
+
+    private final boolean[] changeDeadlineVisibility = {true};
 
     @RequiresApi(api = Build.VERSION_CODES.Q)
     @Override
@@ -62,14 +66,15 @@ public class AddingNewNoteActivity extends AppCompatActivity {
     private void init() {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
-        scrollView = findViewById(R.id.scrollable);
-        scrollView.scrollToDescendant(deadlineEditText);
+//        scrollView = findViewById(R.id.scrollable);
+//        scrollView.scrollToDescendant(deadlineEditText);
 
         titleAdding = findViewById(R.id.titleAdding);
         subtitleAdding = findViewById(R.id.subtitleAdding);
         deadlineCheckBox = findViewById(R.id.deadlineCheckBox);
         deadlineEditText = findViewById(R.id.deadlineEditText);
         deadlineCalendar = findViewById(R.id.deadlineCalendar);
+        deadlineLayout = findViewById(R.id.deadlineLayout);
 
         deadlineEditText.setEnabled(false);
         deadlineCalendar.setEnabled(false);
@@ -136,8 +141,8 @@ public class AddingNewNoteActivity extends AppCompatActivity {
         }
     }
 
-    private void updateNote(){
-        if(savingUpdate){
+    private void updateNote() {
+        if (savingUpdate) {
             Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.editingNote);
             idUpdate = (int) Objects.requireNonNull(getIntent().getSerializableExtra(EXTRA_ID));
             String title =
@@ -170,10 +175,10 @@ public class AddingNewNoteActivity extends AppCompatActivity {
 
         StringBuilder stringBuilder = new StringBuilder();
         if (!mailTitle.equals("")) {
-            stringBuilder.append(getString(R.string.title)).append("\n").append(mailTitle).append("\n\n");
+            stringBuilder.append(mailTitle).append("\n\n");
         }
         if (!mailSubtitle.equals("")) {
-            stringBuilder.append(getString(R.string.content)).append("\n").append(mailSubtitle).append("\n\n");
+            stringBuilder.append(mailSubtitle).append("\n\n");
         }
         if (!mailDeadline.equals("")) {
             stringBuilder.append(getString(R.string.deadline)).append(": ").append(mailDeadline);
@@ -214,6 +219,16 @@ public class AddingNewNoteActivity extends AppCompatActivity {
         }
         if (id == R.id.action_share) {
             shareNote();
+            return true;
+        }
+        if (id == R.id.action_deadline) {
+            if (changeDeadlineVisibility[0]) {
+                deadlineLayout.setVisibility(View.VISIBLE);
+                changeDeadlineVisibility[0] = false;
+            } else {
+                deadlineLayout.setVisibility(View.GONE);
+                changeDeadlineVisibility[0] = true;
+            }
             return true;
         }
         if (id == android.R.id.home) {

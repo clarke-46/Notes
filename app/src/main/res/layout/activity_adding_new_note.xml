@@ -11,8 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="-35dp">
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,6 +19,54 @@
             android:layout_marginStart="5dp"
             android:layout_marginEnd="5dp"
             android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/deadlineLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:paddingStart="3dp"
+                android:paddingEnd="3dp"
+                android:visibility="gone">
+
+                <CheckBox
+                    android:id="@+id/deadlineCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:paddingStart="3dp"
+                    android:text="@string/deadline"
+                    android:textSize="17sp"
+                    tools:ignore="RtlSymmetry" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:orientation="horizontal"
+                    tools:ignore="RtlSymmetry">
+
+                    <EditText
+                        android:id="@+id/deadlineEditText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="9"
+                        android:textSize="16.5sp"
+                        android:inputType="date" />
+
+                    <ImageButton
+                        android:id="@+id/deadlineCalendar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="setTime"
+                        app:srcCompat="@drawable/ic_baseline_calendar_24"
+                        tools:ignore="UsingOnClickInXml" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
 
             <EditText
                 android:id="@+id/titleAdding"
@@ -35,43 +82,6 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="15dp"
                 android:hint="@string/subtitleAdding" />
-
-            <CheckBox
-                android:id="@+id/deadlineCheckBox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="7dp"
-                android:paddingStart="5dp"
-                android:text="@string/thereIsDeadline"
-                android:textSize="17sp"
-                tools:ignore="RtlSymmetry" />
-
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="7dp"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                tools:ignore="RtlSymmetry">
-
-                <EditText
-                    android:id="@+id/deadlineEditText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/deadline"
-                    android:inputType="date" />
-
-                <ImageButton
-                    android:id="@+id/deadlineCalendar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="setTime"
-                    app:srcCompat="@drawable/ic_baseline_calendar_24"
-                    tools:ignore="UsingOnClickInXml" />
-
-            </LinearLayout>
 
         </LinearLayout>
 

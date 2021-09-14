@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,9 +21,12 @@ import com.example.notes.activities.AddingNewNoteActivity;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static com.example.notes.activities.MainActivity.viewModel;
 
@@ -29,6 +34,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
 
     private List<Note> noteList;
     private final LayoutInflater inflater;
+    private Timer timer;
+    private List<Note> searchedNotes;
 
     public static final String EXTRA_ID = "ID";
     public static final String EXTRA_TITLE = "TITLE";
@@ -45,6 +52,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     @SuppressLint("NotifyDataSetChanged")
     public void setNotes(List<Note> noteList) {
         this.noteList = noteList;
+        searchedNotes = noteList;
         notifyDataSetChanged();
     }
 
@@ -112,6 +120,35 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
             return noteList.size();
         } else {
             return 0;
+        }
+    }
+
+    public void searchNotes(final String searchKeyword) {
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            public void run() {
+                if (searchKeyword.trim().isEmpty()) {
+                    noteList = searchedNotes;
+                } else {
+                    ArrayList<Note> temporaryList = new ArrayList<>();
+                    for (Note note : searchedNotes) {
+                        if (note.getTitle().toLowerCase().contains(searchKeyword.toLowerCase())
+                                || note.getSubtitle().toLowerCase().contains(searchKeyword.toLowerCase())) {
+                            temporaryList.add(note);
+                        }
+                    }
+                    noteList = temporaryList;
+                }
+                new Handler(Looper.getMainLooper()).post(() -> notifyDataSetChanged());
+            }
+        }, 500);
+    }
+
+    public void cancelTimer() {
+        if (timer != null) {
+            timer.cancel();
         }
     }
 

@@ -5,14 +5,19 @@
     tools:context=".activities.AddingNewNoteActivity">
 
     <item
+        android:id="@+id/action_deadline"
+        android:title="@string/deadline"
+        app:showAsAction="collapseActionView" />
+
+    <item
         android:id="@+id/action_share"
         android:icon="@drawable/ic_baseline_share_24"
         android:title="@string/share"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="collapseActionView" />
 
     <item
         android:id="@+id/action_save"
-        android:icon="@drawable/ic_baseline_save_24"
+        android:icon="@drawable/ic_baseline_check_24"
         android:title="@string/save"
         app:showAsAction="ifRoom" />
 

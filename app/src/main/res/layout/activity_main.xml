@@ -6,11 +6,47 @@
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
 
+    <LinearLayout
+        android:id="@+id/searchLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="3dp"
+        android:paddingStart="7dp"
+        android:paddingEnd="7dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="1dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_baseline_search_24" />
+
+        <EditText
+            android:id="@+id/inputSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/search_notes"
+            android:textColorHint="@color/darkerGray"
+            android:imeOptions="actionDone"
+            android:importantForAutofill="no"
+            android:includeFontPadding="false"
+            android:inputType="text" />
+
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/item_recyclerview" />
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/item_recyclerview"
+        app:layout_constraintTop_toBottomOf="@id/searchLayout" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"

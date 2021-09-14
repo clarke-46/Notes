@@ -43,7 +43,6 @@
     <string name="newNote">New note</string>
     <string name="titleAdding">Note title</string>
     <string name="subtitleAdding">Text of the note</string>
-    <string name="thereIsDeadline">There is a deadline</string>
     <string name="deadline">Deadline</string>
     <string name="toastNoteIsSaved">Note saved</string>
     <string name="toastNoteIsEmpty">Note is empty, enter the text</string>
@@ -55,8 +54,9 @@
     <string name="editingNote">Editing the note</string>
     <string name="addNote">Add a note</string>
     <string name="share">Share</string>
-    <string name="title">Title:</string>
-    <string name="content">Content:</string>
     <string name="toastNoApp">No app to send</string>
     <string name="toastChooseApp">Choose app to send</string>
+
+    <string name="search">Search</string>
+    <string name="search_notes">Search notes</string>
 </resources>

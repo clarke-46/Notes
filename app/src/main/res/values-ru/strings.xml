@@ -32,7 +32,6 @@
     <string name="newNote">Новая заметка</string>
     <string name="titleAdding">Заголовок заметки</string>
     <string name="subtitleAdding">Текст заметки</string>
-    <string name="thereIsDeadline">Есть дедлайн</string>
     <string name="deadline">Дедлайн</string>
     <string name="toastNoteIsSaved">Заметка сохранена</string>
     <string name="toastNoteIsEmpty">Заметка пуста, введите текст</string>
@@ -44,8 +43,9 @@
     <string name="editingNote">Редактирование</string>
     <string name="addNote">Добавить заметку</string>
     <string name="share">Поделиться</string>
-    <string name="title">Заголовок:</string>
-    <string name="content">Содержание:</string>
     <string name="toastNoApp">Нет приложения для отправки</string>
     <string name="toastChooseApp">Выберите приложение для отправки</string>
+
+    <string name="search">Поиск</string>
+    <string name="search_notes">Поиск заметок</string>
 </resources>
