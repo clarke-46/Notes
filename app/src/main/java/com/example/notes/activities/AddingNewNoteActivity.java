@@ -5,6 +5,7 @@ import static com.example.notes.NoteAdapter.EXTRA_DEADLINE_CHECKBOX;
 import static com.example.notes.NoteAdapter.EXTRA_ID;
 import static com.example.notes.NoteAdapter.EXTRA_SUBTITLE;
 import static com.example.notes.NoteAdapter.EXTRA_TITLE;
+import static com.example.notes.NoteAdapter.EXTRA_TODO_LIST;
 import static com.example.notes.NoteAdapter.savingUpdate;
 import static com.example.notes.activities.MainActivity.viewModel;
 
@@ -21,21 +22,28 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.notes.Note;
 import com.example.notes.R;
 import com.example.notes.Themes;
+import com.example.notes.TodoAdapter;
+import com.example.notes.TodoList;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Objects;
 
-public class AddingNewNoteActivity extends AppCompatActivity {
+public class AddingNewNoteActivity extends AppCompatActivity implements TodoAdapter.ItemClicked {
 
 //    private ScrollView scrollView;
     private EditText titleAdding;
@@ -44,10 +52,16 @@ public class AddingNewNoteActivity extends AppCompatActivity {
     private EditText deadlineEditText;
     private ImageButton deadlineCalendar;
     private RelativeLayout deadlineLayout;
+    private RecyclerView todoListAdding;
+    private ImageView addTodo;
+    private LinearLayout addItemTodo;
 
     private final Calendar calendar = Calendar.getInstance();
     private long deadlineDate;
     public int idUpdate;
+    private ArrayList<TodoList> todoList;
+    private TodoAdapter todoAdapter;
+    private RecyclerView.LayoutManager layoutManager;
 
     private final boolean[] changeDeadlineVisibility = {true};
 
@@ -62,6 +76,7 @@ public class AddingNewNoteActivity extends AppCompatActivity {
         updateNote();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     @RequiresApi(api = Build.VERSION_CODES.Q)
     private void init() {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
@@ -75,6 +90,11 @@ public class AddingNewNoteActivity extends AppCompatActivity {
         deadlineEditText = findViewById(R.id.deadlineEditText);
         deadlineCalendar = findViewById(R.id.deadlineCalendar);
         deadlineLayout = findViewById(R.id.deadlineLayout);
+        todoListAdding = findViewById(R.id.todoListAdding);
+        addTodo = findViewById(R.id.addTodo);
+        addItemTodo = findViewById(R.id.addItemTodo);
+
+        TodoAdapter.f = 0;
 
         deadlineEditText.setEnabled(false);
         deadlineCalendar.setEnabled(false);
@@ -90,6 +110,39 @@ public class AddingNewNoteActivity extends AppCompatActivity {
                 deadlineEditText.setEnabled(false);
                 deadlineCalendar.setEnabled(false);
             }
+        });
+
+        todoListAdding.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        todoListAdding.setLayoutManager(layoutManager);
+        todoList = new ArrayList<>();
+        todoAdapter = new TodoAdapter(this, todoList);
+        todoListAdding.setAdapter(todoAdapter);
+
+        if (todoList.size() > 0) {
+            addTodo.animate().alpha(0.5f).start();
+            addTodo.setEnabled(false);
+        }
+
+        addTodo.setOnClickListener(v -> {
+            todoList.add(new TodoList(null, false));
+            TodoAdapter.f = 1;
+            todoAdapter.notifyDataSetChanged();
+            addItemTodo.setVisibility(View.VISIBLE);
+            addTodo.animate().alpha(0.5f).start();
+            addTodo.setEnabled(false);
+        });
+
+        if (todoList.isEmpty()) {
+            addItemTodo.setVisibility(View.GONE);
+        }
+
+        addItemTodo.setOnClickListener(v -> {
+            todoList.add(new TodoList(null, false));
+            TodoAdapter.f = 1;
+            todoAdapter.notifyDataSetChanged();
+            addTodo.animate().alpha(0.5f).start();
+            addTodo.setEnabled(false);
         });
     }
 
@@ -132,6 +185,7 @@ public class AddingNewNoteActivity extends AppCompatActivity {
                 deadlineCheckBox.isChecked(), deadlineDate);
         long update = System.currentTimeMillis();
         note.setUpdate(update);
+        note.setTodoLists(todoList);
         if (savingUpdate) {
             note.setId(idUpdate);
             viewModel.update(note);
@@ -153,6 +207,8 @@ public class AddingNewNoteActivity extends AppCompatActivity {
                     (boolean) Objects.requireNonNull(getIntent().getSerializableExtra(EXTRA_DEADLINE_CHECKBOX));
             long deadline =
                     (long) Objects.requireNonNull(getIntent().getSerializableExtra(EXTRA_DEADLINE));
+            ArrayList<TodoList> listTodo =
+                    (ArrayList<TodoList>) Objects.requireNonNull(getIntent().getSerializableExtra(EXTRA_TODO_LIST));
 
             titleAdding.setText(title);
             subtitleAdding.setText(subtitle);
@@ -163,6 +219,13 @@ public class AddingNewNoteActivity extends AppCompatActivity {
                                 DateUtils.FORMAT_SHOW_YEAR | DateUtils.FORMAT_SHOW_TIME |
                                 DateUtils.FORMAT_24HOUR));
                 deadlineDate = deadline;
+            }
+
+            todoList.addAll(listTodo);
+            if (listTodo.size() > 0) {
+                addItemTodo.setVisibility(View.VISIBLE);
+                addTodo.animate().alpha(0.5f).start();
+                addTodo.setEnabled(false);
             }
         }
     }
@@ -236,5 +299,36 @@ public class AddingNewNoteActivity extends AppCompatActivity {
             finish();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    @Override
+    public void onCheckedClick(int index) {
+        boolean cancelled = todoList.get(index).isCancelled;
+        cancelled = !cancelled;
+        todoList.get(index).setCancelled(cancelled);
+        todoAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void itemText(int index, String text) {
+        todoList.get(index).setTodo(text);
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    @Override
+    public void clearItem(int index) {
+        todoList.remove(index);
+        TodoAdapter.f = 1;
+        todoAdapter.notifyDataSetChanged();
+        if (todoList.isEmpty()) {
+            addItemTodo.setVisibility(View.GONE);
+            addTodo.animate().alpha(1).start();
+            addTodo.setEnabled(true);
+        } else {
+            addItemTodo.setVisibility(View.VISIBLE);
+            addTodo.animate().alpha(0.5f).start();
+            addTodo.setEnabled(false);
+        }
     }
 }

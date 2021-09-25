@@ -56,6 +56,7 @@
     <string name="share">Share</string>
     <string name="toastNoApp">No app to send</string>
     <string name="toastChooseApp">Choose app to send</string>
+    <string name="add_item">add item</string>
 
     <string name="search">Search</string>
     <string name="search_notes">Search notes</string>

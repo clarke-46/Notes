@@ -6,26 +6,28 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+    <color name="nearlyBlack">#272727</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="darkerGray">#AAAAAA</color>
+    <color name="creamyWhite">#FDFAF6</color>
+    <color name="grayDark">#AAAAAA</color>
     <color name="red">#F44336</color>
     <color name="yellow">#FFC107</color>
 
     <color name="maroon">#8F0434</color>
-    <color name="darkMaroon">#670D2C</color>
+    <color name="maroonDark">#670D2C</color>
     <color name="maroonNight">#4A0920</color>
-    <color name="darkMaroonNight">#3C081A</color>
+    <color name="maroonDarkNight">#3C081A</color>
     <color name="orange">#FD973F</color>
 
     <color name="emerald">#2A8A81</color>
-    <color name="darkEmerald">#02605C</color>
+    <color name="emeraldDark">#02605C</color>
     <color name="emeraldNight">#206A63</color>
-    <color name="darkEmeraldNight">#024341</color>
+    <color name="emeraldDarkNight">#024341</color>
     <color name="lavenderBlue">#C3C3F8</color>
 
-    <color name="lightGreen">#81C147</color>
-    <color name="pastelGreen">#BEE9B4</color>
-    <color name="pastelGreenPaler">#DCF3D6</color>
+    <color name="greenLight">#81C147</color>
+    <color name="greenPastel">#BEE9B4</color>
+    <color name="greenPastelPaler">#DCF3D6</color>
     <color name="grayGreen">#789370</color>
     <color name="grayGreenDarker">#657A5F</color>
 </resources>

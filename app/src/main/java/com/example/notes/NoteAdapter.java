@@ -42,6 +42,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     public static final String EXTRA_SUBTITLE = "SUBTITLE";
     public static final String EXTRA_DEADLINE_CHECKBOX = "CHECKBOX";
     public static final String EXTRA_DEADLINE = "DEADLINE";
+    public static final String EXTRA_TODO_LIST = "TODO_LIST";
     public static boolean savingUpdate = false;
     private final Calendar currentCalendar = Calendar.getInstance();
 
@@ -82,10 +83,10 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         }
 
         long deadline = note.getDeadline();
+        Context context = holder.itemView.getContext();
         if (deadline == 0) {
             holder.deadlineString.setVisibility(View.GONE);
         } else {
-            Context context = holder.itemView.getContext();
             holder.deadlineString.setText(getDate(deadline, context));
             holder.deadlineString.setVisibility(View.VISIBLE);
         }
@@ -97,8 +98,11 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
                 deadline - (currentCalendar.getTimeInMillis()) < 86400000) {
             holder.deadlineString.setTextColor(ContextCompat.getColor(deadlineStringContext, R.color.yellow));
         } else {
-            holder.deadlineString.setTextColor(ContextCompat.getColor(deadlineStringContext, R.color.darkerGray));
+            holder.deadlineString.setTextColor(ContextCompat.getColor(deadlineStringContext, R.color.grayDark));
         }
+
+        long update = note.getUpdate();
+        holder.updateString.setText(getDate(update, context));
     }
 
     private String getDate(long time, Context context) {
@@ -158,6 +162,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         private final TextView titleString;
         private final TextView subtitleString;
         private final TextView deadlineString;
+        private final TextView updateString;
 
         @SuppressLint("NotifyDataSetChanged")
         private NoteViewHolder(View itemView) {
@@ -166,6 +171,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
             titleString = itemView.findViewById(R.id.titleString);
             subtitleString = itemView.findViewById(R.id.subtitleString);
             deadlineString = itemView.findViewById(R.id.deadlineString);
+            updateString = itemView.findViewById(R.id.updateString);
 
             cardView.setOnLongClickListener(v -> {
                 String title = titleString.getText().toString();
@@ -203,6 +209,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
                 intent.putExtra(EXTRA_SUBTITLE, note.getSubtitle());
                 intent.putExtra(EXTRA_DEADLINE_CHECKBOX, note.isDeadlineCheckbox());
                 intent.putExtra(EXTRA_DEADLINE, note.getDeadline());
+                intent.putExtra(EXTRA_TODO_LIST, note.getTodoLists());
                 v.getContext().startActivity(intent);
             });
         }

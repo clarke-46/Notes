@@ -16,19 +16,24 @@
 
     <style name="MyTheme.Maroon" parent="MyTheme">
         <item name="colorPrimary">@color/maroonNight</item>
-        <item name="colorPrimaryDark">@color/darkMaroonNight</item>
+        <item name="colorPrimaryDark">@color/maroonDarkNight</item>
         <item name="colorAccent">@color/orange</item>
     </style>
 
     <style name="MyTheme.Emerald" parent="MyTheme">
         <item name="colorPrimary">@color/emeraldNight</item>
-        <item name="colorPrimaryDark">@color/darkEmeraldNight</item>
+        <item name="colorPrimaryDark">@color/emeraldDarkNight</item>
         <item name="colorAccent">@color/lavenderBlue</item>
     </style>
 
     <style name="MyTheme.LightGreen" parent="Theme.AppCompat.DayNight">
         <item name="colorPrimary">@color/grayGreen</item>
         <item name="colorPrimaryDark">@color/grayGreenDarker</item>
-        <item name="colorAccent">@color/lightGreen</item>
+        <item name="colorAccent">@color/greenLight</item>
+    </style>
+
+    <style name="TodoBackground">
+        <item name="android:colorBackground">@color/nearlyBlack</item>
+        <item name="android:backgroundTint">@color/nearlyBlack</item>
     </style>
 </resources>

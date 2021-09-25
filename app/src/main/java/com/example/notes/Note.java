@@ -4,6 +4,8 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.ArrayList;
+
 @Entity(tableName = "notes")
 public class Note {
 
@@ -21,6 +23,8 @@ public class Note {
 
     @ColumnInfo(name = "last_update")
     private long update;
+
+    private ArrayList<TodoList> todoLists;
 
     public Note(String title, String subtitle, boolean deadlineCheckbox, long deadline) {
         this.title = title;
@@ -59,5 +63,13 @@ public class Note {
 
     public void setUpdate(long update) {
         this.update = update;
+    }
+
+    public ArrayList<TodoList> getTodoLists() {
+        return todoLists;
+    }
+
+    public void setTodoLists(ArrayList<TodoList> todoLists) {
+        this.todoLists = todoLists;
     }
 }

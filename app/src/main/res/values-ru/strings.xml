@@ -45,6 +45,7 @@
     <string name="share">Поделиться</string>
     <string name="toastNoApp">Нет приложения для отправки</string>
     <string name="toastChooseApp">Выберите приложение для отправки</string>
+    <string name="add_item">добавить элемент</string>
 
     <string name="search">Поиск</string>
     <string name="search_notes">Поиск заметок</string>

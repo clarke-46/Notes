@@ -25,6 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:layout_marginBottom="3dp"
                 android:paddingStart="3dp"
                 android:paddingEnd="3dp"
                 android:visibility="gone">
@@ -53,8 +54,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="9"
-                        android:textSize="16.5sp"
-                        android:inputType="date" />
+                        android:inputType="date"
+                        android:textSize="16.5sp" />
 
                     <ImageButton
                         android:id="@+id/deadlineCalendar"
@@ -73,18 +74,63 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:hint="@string/titleAdding" />
+                android:layout_marginBottom="10dp"
+                android:hint="@string/titleAdding"
+                android:textSize="20sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/todoListAdding"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:id="@+id/addItemTodo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingTop="3dp"
+                android:paddingBottom="10dp"
+                android:paddingStart="25dp"
+                android:visibility="gone"
+                tools:ignore="RtlSymmetry">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_baseline_add_gray_24" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="10dp"
+                    android:text="@string/add_item"
+                    android:textColor="@color/grayDark"
+                    android:textSize="16.5sp" />
+
+            </LinearLayout>
 
             <EditText
                 android:id="@+id/subtitleAdding"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_marginBottom="15dp"
                 android:hint="@string/subtitleAdding" />
 
         </LinearLayout>
 
     </ScrollView>
+
+    <ImageView
+        android:id="@+id/addTodo"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="7dp"
+        android:layout_marginBottom="5dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:srcCompat="@drawable/check_box"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
