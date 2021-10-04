@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="enterPinTxt">Введите пин:</string>
-    <string name="toastPasswordSaved">Пин-код сохранён!</string>
-    <string name="toastPasswordIncorrect">Введён неправильный пин-код!</string>
+    <string name="enterPinTxt">Введите пароль:</string>
+    <string name="toastPasswordSaved">Пароль сохранён!</string>
+    <string name="toastPasswordIncorrect">Введён неправильный пароль!</string>
 
     <string name="settings">Настройки</string>
     <string name="safety">Безопасность</string>
     <string name="changePassword">Изменить пароль</string>
-    <string name="newPinTxt">Новый пин-код:</string>
+    <string name="newPinTxt">Новый пароль:</string>
     <string name="fourDigits">(должен состоять из 4 цифр)</string>
     <string name="save">Сохранить</string>
     <string name="toastEnterPin">Введите пароль</string>

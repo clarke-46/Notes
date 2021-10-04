@@ -240,6 +240,18 @@ public class AddingNewNoteActivity extends AppCompatActivity implements TodoAdap
         if (!mailTitle.equals("")) {
             stringBuilder.append(mailTitle).append("\n\n");
         }
+        if (todoList.size() > 0) {
+            for (int i = 0; i < todoList.size();  i++) {
+                String item = todoList.get(i).getTodo();
+                if (todoList.get(i).isCancelled) {
+                    stringBuilder.append("[+]  ");
+                } else {
+                    stringBuilder.append("[ ]  ");
+                }
+                stringBuilder.append(item).append("\n");
+            }
+            stringBuilder.append("\n");
+        }
         if (!mailSubtitle.equals("")) {
             stringBuilder.append(mailSubtitle).append("\n\n");
         }

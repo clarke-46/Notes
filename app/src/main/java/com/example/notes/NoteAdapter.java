@@ -1,5 +1,7 @@
 package com.example.notes;
 
+import static com.example.notes.activities.MainActivity.viewModel;
+
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -27,8 +29,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import static com.example.notes.activities.MainActivity.viewModel;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder> {
 
@@ -75,8 +75,21 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
             holder.titleString.setVisibility(View.VISIBLE);
         }
 
-        holder.subtitleString.setText(note.getSubtitle());
-        if (note.getSubtitle().equals("")) {
+        StringBuilder content = new StringBuilder(note.getSubtitle());
+        ArrayList<TodoList> todoList = note.getTodoLists();
+        if (content.length() == 0 && todoList.size() > 0) {
+            for (int i = 0; i < Math.min(5, todoList.size());  i++) {
+                String item = todoList.get(i).getTodo();
+                int maxLength = 15;
+                if (item.length() > maxLength) {
+                    item = item.substring(0, maxLength).concat("...");
+                }
+                content.append("\u274F  ").append(item).append("    ");
+            }
+        }
+
+        holder.subtitleString.setText(content.toString());
+        if (content.toString().equals("")) {
             holder.subtitleString.setVisibility(View.GONE);
         } else {
             holder.subtitleString.setVisibility(View.VISIBLE);
@@ -138,8 +151,14 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
                 } else {
                     ArrayList<Note> temporaryList = new ArrayList<>();
                     for (Note note : searchedNotes) {
+                        ArrayList<TodoList> todoList = note.getTodoLists();
+                        StringBuilder stringBuilder = new StringBuilder();
+                        for (int i = 0; i < todoList.size();  i++) {
+                            stringBuilder.append(todoList.get(i).getTodo());
+                        }
                         if (note.getTitle().toLowerCase().contains(searchKeyword.toLowerCase())
-                                || note.getSubtitle().toLowerCase().contains(searchKeyword.toLowerCase())) {
+                                | note.getSubtitle().toLowerCase().contains(searchKeyword.toLowerCase())
+                                | stringBuilder.toString().toLowerCase().contains(searchKeyword.toLowerCase())) {
                             temporaryList.add(note);
                         }
                     }
