@@ -1,9 +1,13 @@
 package com.example.notes.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.hardware.fingerprint.FingerprintManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,12 +26,15 @@ public class SettingActivity extends AppCompatActivity {
     private TextView darkModeText;
     private TextView themeText;
     private SwitchCompat requestPasswordSwitch;
+    private SwitchCompat fingerprintSwitch;
 
     private int selectedModeIndex = 0;
     private int selectedThemeIndex = 0;
 
     public static final String HAVING_PASSWORD_KEY = "thereIsPassword";
     public static final String IS_CHECKED = "isChecked";
+    public static final String FINGERPRINT_KEY = "fingerprintCheck";
+    public static final String FINGERPRINT_CHECKED = "fingerprintChecked";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +44,7 @@ public class SettingActivity extends AppCompatActivity {
 
         init();
         havingPassword();
+        enableFingerprintAuthentication();
         darkLightMode();
         changeTheme();
     }
@@ -70,11 +78,45 @@ public class SettingActivity extends AppCompatActivity {
         requestPasswordSwitch.setChecked(havingPasswordPreferences.getBoolean(IS_CHECKED, false));
     }
 
+    private void enableFingerprintAuthentication() {
+        fingerprintSwitch = findViewById(R.id.fingerprintSwitch);
+
+        SharedPreferences fingerprintPreferences = getSharedPreferences(FINGERPRINT_KEY, MODE_PRIVATE);
+        SharedPreferences.Editor fingerprintEditor = fingerprintPreferences.edit();
+
+        fingerprintSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (fingerprintSwitch.isChecked()) {
+                fingerprintEditor.putString(FINGERPRINT_CHECKED, "enable");
+                fingerprintEditor.apply();
+            } else {
+                fingerprintEditor.putString(FINGERPRINT_CHECKED, "disable");
+                fingerprintEditor.apply();
+            }
+        });
+
+        fingerprintSwitch.setChecked(Objects.equals(fingerprintPreferences.getString(FINGERPRINT_CHECKED,
+                null), "enable"));
+
+        // аутентификация по отпечатку пальца возможна только с Android 6.0 (M)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            FingerprintManager fingerprintManager =
+                    (FingerprintManager) getSystemService(Context.FINGERPRINT_SERVICE);
+            if (fingerprintManager != null) {
+                if (!fingerprintManager.isHardwareDetected()) {
+                    fingerprintSwitch.setVisibility(View.GONE);
+                } else if (!fingerprintManager.hasEnrolledFingerprints()) {
+                    fingerprintSwitch.setVisibility(View.GONE);
+                }
+            }
+        } else {
+            fingerprintSwitch.setVisibility(View.GONE);
+        }
+    }
+
     private void darkLightMode() {
         darkModeText = findViewById(R.id.darkModeText);
 
-        String[] modes = {getResources().getString(R.string.followSystem),
-                getResources().getString(R.string.on), getResources().getString(R.string.off)};
+        String[] modes = {getString(R.string.followSystem), getString(R.string.on), getString(R.string.off)};
 
         darkModeText.setOnClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
@@ -112,10 +154,8 @@ public class SettingActivity extends AppCompatActivity {
     private void changeTheme() {
         themeText = findViewById(R.id.colorThemeText);
 
-        String[] themes = {getResources().getString(R.string.maroonColor),
-                getResources().getString(R.string.emeraldColor),
-                getResources().getString(R.string.lightGreenColor),
-                getResources().getString(R.string.blackColor)};
+        String[] themes = {getString(R.string.maroonColor), getString(R.string.emeraldColor),
+                getString(R.string.lightGreenColor), getString(R.string.blackColor)};
 
         themeText.setOnClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());

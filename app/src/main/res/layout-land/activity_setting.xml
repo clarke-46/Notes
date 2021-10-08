@@ -14,7 +14,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:paddingStart="20dp"
+                android:layout_marginBottom="7dp"
+                android:paddingStart="17dp"
                 android:text="@string/safety"
                 android:textStyle="bold"
                 android:textColor="?android:colorAccent"
@@ -24,19 +25,18 @@
                 android:id="@+id/requestPasswordSwitch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:paddingTop="17dp"
+                android:paddingHorizontal="17dp"
+                android:paddingTop="15dp"
                 android:paddingBottom="7dp"
+                android:background="@drawable/view"
                 android:text="@string/requestPassword"
-                android:textSize="19sp"
+                android:textSize="18sp"
                 android:textColor="?attr/colorControlNormal" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
+                android:paddingHorizontal="17dp"
                 android:paddingBottom="15dp"
                 android:text="@string/requestPasswordExplanation"
                 android:textSize="15sp" />
@@ -45,18 +45,38 @@
                 android:id="@+id/changePasswordText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingStart="20dp"
-                android:paddingTop="17dp"
-                android:paddingBottom="17dp"
+                android:paddingHorizontal="17dp"
+                android:paddingVertical="15dp"
+                android:background="@drawable/view"
                 android:text="@string/changePassword"
-                android:textSize="19sp"
-                tools:ignore="RtlSymmetry" />
+                android:textSize="18sp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/fingerprintSwitch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="17dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="7dp"
+                android:background="@drawable/view"
+                android:text="@string/fingerprint_authentication"
+                android:textSize="18sp"
+                android:textColor="?attr/colorControlNormal" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="17dp"
+                android:paddingBottom="15dp"
+                android:text="@string/fingerprint_explanation"
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:paddingStart="20dp"
+                android:layout_marginBottom="7dp"
+                android:paddingStart="17dp"
                 android:text="@string/design"
                 android:textStyle="bold"
                 android:textColor="?android:colorAccent"
@@ -66,23 +86,21 @@
                 android:id="@+id/darkModeText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingStart="20dp"
-                android:paddingTop="17dp"
-                android:paddingBottom="17dp"
+                android:paddingHorizontal="17dp"
+                android:paddingVertical="15dp"
+                android:background="@drawable/view"
                 android:text="@string/darkMode"
-                android:textSize="19sp"
-                tools:ignore="RtlSymmetry" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/colorThemeText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingStart="20dp"
-                android:paddingTop="17dp"
-                android:paddingBottom="17dp"
+                android:paddingHorizontal="17dp"
+                android:paddingVertical="15dp"
+                android:background="@drawable/view"
                 android:text="@string/colorTheme"
-                android:textSize="19sp"
-                tools:ignore="RtlSymmetry" />
+                android:textSize="18sp" />
 
         </LinearLayout>
 

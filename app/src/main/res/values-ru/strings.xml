@@ -14,6 +14,15 @@
     <string name="requestPassword">Запрашивать пароль</string>
     <string name="requestPasswordExplanation">(Если пароль не запрашивается, он всё равно сохраняется в системе. Если Вы не помните свой пароль, измените его перед включением этой функции.)</string>
 
+    <string name="fingerprint_authentication">Вход по отпечатку пальца</string>
+    <string name="fingerprint_explanation">(Эта функция работает, если запрашивается пароль.)</string>
+    <string name="toast_authentication_error">Ошибка аутентификации:</string>
+    <string name="toast_authentication_failed">Не удалось выполнить аутентификацию, пожалуйста, повторите попытку</string>
+    <string name="toast_authentication_help">Помощь с аутентификацией:</string>
+    <string name="toast_authentication_not_supported">Ваше устройство не поддерживает аутентификацию по отпечатку пальца</string>
+    <string name="toast_authentication_permission">Пожалуйста, предоставьте разрешение на отпечаток пальца</string>
+    <string name="toast_authentication_settings">Пожалуйста, проверьте настройки экрана блокировки на устройстве</string>
+
     <string name="design">Оформление</string>
     <string name="darkMode">Тёмный режим</string>
     <string name="followSystem">Системный</string>
