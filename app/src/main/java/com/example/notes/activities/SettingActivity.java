@@ -33,7 +33,7 @@ public class SettingActivity extends AppCompatActivity {
 
     public static final String HAVING_PASSWORD_KEY = "thereIsPassword";
     public static final String IS_CHECKED = "isChecked";
-    public static final String FINGERPRINT_KEY = "fingerprintCheck";
+    public static final String FINGERPRINT_KEY = "fingerprint";
     public static final String FINGERPRINT_CHECKED = "fingerprintChecked";
 
     @Override
@@ -136,9 +136,8 @@ public class SettingActivity extends AppCompatActivity {
                                 selectedModeIndex = 3;
                                 break;
                         }
-                        Toast.makeText(SettingActivity.this,
-                                getResources().getString(R.string.darkMode) + ": " +
-                                        modes[item], Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SettingActivity.this, getString(R.string.darkMode) +
+                                ": " + modes[item], Toast.LENGTH_SHORT).show();
                     })
                     .setPositiveButton(R.string.ok, (dialog, i) -> {
                         Themes.applyDarkMode(getApplicationContext(), selectedModeIndex);
@@ -179,9 +178,8 @@ public class SettingActivity extends AppCompatActivity {
                                 selectedThemeIndex = 3;
                                 break;
                         }
-                        Toast.makeText(SettingActivity.this,
-                                getResources().getString(R.string.toastThemeSelected) + " " +
-                                        themes[item], Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SettingActivity.this, getString(R.string.toastThemeSelected) +
+                                " " + themes[item], Toast.LENGTH_SHORT).show();
                     })
                     .setPositiveButton(R.string.ok, (dialog, id) -> {
                         Themes.applyColorTheme(getApplicationContext(), selectedThemeIndex);

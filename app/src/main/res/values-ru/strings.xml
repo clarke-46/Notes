@@ -16,9 +16,9 @@
 
     <string name="fingerprint_authentication">Вход по отпечатку пальца</string>
     <string name="fingerprint_explanation">(Эта функция работает, если запрашивается пароль.)</string>
-    <string name="toast_authentication_error">Ошибка аутентификации:</string>
     <string name="toast_authentication_failed">Не удалось выполнить аутентификацию, пожалуйста, повторите попытку</string>
-    <string name="toast_authentication_help">Помощь с аутентификацией:</string>
+    <string name="toast_error">Ошибка:</string>
+    <string name="toast_help">Помощь:</string>
     <string name="toast_authentication_not_supported">Ваше устройство не поддерживает аутентификацию по отпечатку пальца</string>
     <string name="toast_authentication_permission">Пожалуйста, предоставьте разрешение на отпечаток пальца</string>
     <string name="toast_authentication_settings">Пожалуйста, проверьте настройки экрана блокировки на устройстве</string>
@@ -58,4 +58,9 @@
 
     <string name="search">Поиск</string>
     <string name="search_notes">Поиск заметок</string>
+    <string name="sorting_notes">Сортировка заметок</string>
+    <string name="by_default">по умолчанию</string>
+    <string name="by_update">по дате изменения</string>
+    <string name="alphabetically">по алфавиту</string>
+    <string name="toast_notes_sorted">Заметки отсортированы</string>
 </resources>

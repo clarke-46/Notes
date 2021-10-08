@@ -1,6 +1,9 @@
 package com.example.notes.activities;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -9,8 +12,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,6 +38,11 @@ public class MainActivity extends AppCompatActivity {
     public static NoteViewModel viewModel;
 
     private final boolean[] changeSearchVisibility = {true};
+    private int sortIndex = 1;   // default
+    private int selectedSortIndex = 0;
+
+    public static final String SORTING_PREFERENCES = "sorting_preferences";
+    public static final String SORTING_KEY = "sort";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +70,13 @@ public class MainActivity extends AppCompatActivity {
         list.setLayoutManager(layoutManager);
 
         viewModel = new ViewModelProvider(this).get(NoteViewModel.class);
-        viewModel.getListNotes().observe(this, notes -> adapter.setNotes(notes));
+
+        SharedPreferences sortingPreferences = getSharedPreferences(SORTING_PREFERENCES, MODE_PRIVATE);
+        if (sortingPreferences != null) {
+            sortIndex = sortingPreferences.getInt(SORTING_KEY, 1);
+        }
+
+        applySortingNotes(MainActivity.this, sortIndex);
 
         inputSearch.addTextChangedListener(new TextWatcher() {
             @Override
@@ -77,6 +94,61 @@ public class MainActivity extends AppCompatActivity {
                 adapter.searchNotes(editable.toString());
             }
         });
+    }
+
+    public void applySortingNotes(Context context, int sortIndex) {
+        SharedPreferences preferences = context.getSharedPreferences(SORTING_PREFERENCES,
+                Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt(SORTING_KEY, sortIndex);
+        editor.apply();
+
+        switch (sortIndex) {
+            case 1:
+                viewModel.getListNotes().observe(this, notes -> adapter.setNotes(notes));
+                break;
+            case 2:
+                viewModel.getListNotesSortUpdate().observe((LifecycleOwner) this, notes ->
+                        adapter.setNotes(notes));
+                break;
+            case 3:
+                viewModel.getListNotesSortAlphabetically().observe((LifecycleOwner) this, notes ->
+                        adapter.setNotes(notes));
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void changeSorting() {
+        String[] sorting = {getString(R.string.by_default), getString(R.string.by_update),
+                getString(R.string.alphabetically)};
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle(R.string.sorting_notes)
+                .setSingleChoiceItems(sorting, -1, (dialog, item) -> {
+                    switch (sorting[item]) {
+                        case "по умолчанию":
+                        case "by default":
+                            selectedSortIndex = 1;
+                            break;
+                        case "по дате изменения":
+                        case "by update date":
+                            selectedSortIndex = 2;
+                            break;
+                        case "по алфавиту":
+                        case "alphabetically":
+                            selectedSortIndex = 3;
+                            break;
+                    }
+                    Toast.makeText(MainActivity.this, getString(R.string.toast_notes_sorted) +
+                            " " + sorting[item], Toast.LENGTH_SHORT).show();
+                })
+                .setPositiveButton(R.string.ok, (dialog, id) ->
+                    applySortingNotes(getApplicationContext(), selectedSortIndex));
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     @Override
@@ -103,6 +175,10 @@ public class MainActivity extends AppCompatActivity {
                 searchLayout.setVisibility(View.GONE);
                 changeSearchVisibility[0] = true;
             }
+            return true;
+        }
+        if (id == R.id.action_sort) {
+            changeSorting();
             return true;
         }
         return super.onOptionsItemSelected(item);

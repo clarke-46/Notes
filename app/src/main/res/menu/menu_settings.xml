@@ -9,6 +9,11 @@
         android:icon="@drawable/ic_baseline_search_24"
         app:showAsAction="ifRoom" />
 
+    <item android:id="@+id/action_sort"
+        android:title="@string/sorting_notes"
+        android:icon="@drawable/ic_baseline_sort_24"
+        app:showAsAction="ifRoom" />
+
     <item
         android:id="@+id/action_settings"
         android:title="@string/settings"

@@ -27,9 +27,9 @@
 
     <string name="fingerprint_authentication">Fingerprint authentication</string>
     <string name="fingerprint_explanation">(This feature works if the password is requested.)</string>
-    <string name="toast_authentication_error">Authentication error:</string>
     <string name="toast_authentication_failed">Authentication failed, please try again</string>
-    <string name="toast_authentication_help">Authentication help:</string>
+    <string name="toast_error">Error:</string>
+    <string name="toast_help">Help:</string>
     <string name="toast_authentication_not_supported">Your device doesn`t support fingerprint authentication</string>
     <string name="toast_authentication_permission">Please provide the fingerprint permission</string>
     <string name="toast_authentication_settings">Please check lockscreen settings on your device</string>
@@ -69,4 +69,9 @@
 
     <string name="search">Search</string>
     <string name="search_notes">Search notes</string>
+    <string name="sorting_notes">Sorting notes</string>
+    <string name="by_default">by default</string>
+    <string name="by_update">by update date</string>
+    <string name="alphabetically">alphabetically</string>
+    <string name="toast_notes_sorted">The notes are sorted</string>
 </resources>

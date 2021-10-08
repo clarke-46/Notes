@@ -15,10 +15,20 @@ public class NoteRepository {
     public NoteRepository(Application application) {
         database = NoteRoomDatabase.getDatabase(application);
         noteDao = database.noteDao();
-        listNotes = noteDao.getAllLiveData();
     }
 
     public LiveData<List<Note>> getListNotes() {
+        listNotes = noteDao.getAllLiveData();
+        return listNotes;
+    }
+
+    public LiveData<List<Note>> getListNotesSortUpdate() {
+        listNotes = noteDao.getAllSortUpdate();
+        return listNotes;
+    }
+
+    public LiveData<List<Note>> getListNotesSortAlphabetically() {
+        listNotes = noteDao.getAllSortAlphabetically();
         return listNotes;
     }
 

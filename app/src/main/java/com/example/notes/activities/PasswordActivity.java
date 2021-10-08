@@ -60,6 +60,7 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
 
     private KeyStore keyStore;
     private Cipher cipher;
+
     private static final String KEY_NAME = "keyName";
 
     @Override

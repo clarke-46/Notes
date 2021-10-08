@@ -15,10 +15,20 @@ public class NoteViewModel extends AndroidViewModel {
     public NoteViewModel(Application application) {
         super(application);
         noteRepository = App.getNoteRepository();
-        listNotes = noteRepository.getListNotes();
     }
 
     public LiveData<List<Note>> getListNotes() {
+        listNotes = noteRepository.getListNotes();
+        return listNotes;
+    }
+
+    public LiveData<List<Note>> getListNotesSortUpdate() {
+        listNotes = noteRepository.getListNotesSortUpdate();
+        return listNotes;
+    }
+
+    public LiveData<List<Note>> getListNotesSortAlphabetically() {
+        listNotes = noteRepository.getListNotesSortAlphabetically();
         return listNotes;
     }
 

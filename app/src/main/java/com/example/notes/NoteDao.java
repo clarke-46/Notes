@@ -19,6 +19,12 @@ public interface NoteDao {
     @Query("SELECT * FROM notes ORDER BY deadline = 0 ASC, deadline, last_update DESC")
     LiveData<List<Note>> getAllLiveData();
 
+    @Query("SELECT * FROM notes ORDER BY last_update DESC")
+    LiveData<List<Note>> getAllSortUpdate();
+
+    @Query("SELECT * FROM notes ORDER BY title, subtitle DESC")
+    LiveData<List<Note>> getAllSortAlphabetically();
+
     @Query("SELECT * FROM notes WHERE id = :id")
     Note getById(int id);
 
