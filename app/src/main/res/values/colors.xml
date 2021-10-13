@@ -8,7 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="nearlyBlack">#272727</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="creamyWhite">#FDFAF6</color>
+    <color name="creamyWhite">#FDFAF4</color>
     <color name="grayDark">#AAAAAA</color>
     <color name="grayTransparent">#88D2D2D2</color>
     <color name="transparent">#00000000</color>
@@ -20,6 +20,12 @@
     <color name="maroonNight">#4A0920</color>
     <color name="maroonDarkNight">#3C081A</color>
     <color name="orange">#FD973F</color>
+
+    <color name="lilac">#D1C4E9</color>
+    <color name="lilacDark">#B39DDB</color>
+    <color name="lilacNight">#B8A9D5</color>
+    <color name="lilacDarkNight">#9C8ABD</color>
+    <color name="lilacBright">#CAA6FE</color>
 
     <color name="emerald">#2A8A81</color>
     <color name="emeraldDark">#02605C</color>

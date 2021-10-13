@@ -15,12 +15,8 @@
     <string name="requestPasswordExplanation">(Если пароль не запрашивается, он всё равно сохраняется в системе. Если Вы не помните свой пароль, измените его перед включением этой функции.)</string>
 
     <string name="fingerprint_authentication">Вход по отпечатку пальца</string>
-    <string name="fingerprint_explanation">(Эта функция работает, если запрашивается пароль.)</string>
     <string name="toast_authentication_failed">Не удалось выполнить аутентификацию, пожалуйста, повторите попытку</string>
-    <string name="toast_error">Ошибка:</string>
-    <string name="toast_help">Помощь:</string>
     <string name="toast_authentication_not_supported">Ваше устройство не поддерживает аутентификацию по отпечатку пальца</string>
-    <string name="toast_authentication_permission">Пожалуйста, предоставьте разрешение на отпечаток пальца</string>
     <string name="toast_authentication_settings">Пожалуйста, проверьте настройки экрана блокировки на устройстве</string>
 
     <string name="design">Оформление</string>
@@ -32,6 +28,7 @@
     <string name="themeSelection">Выбор темы</string>
     <string name="toastThemeSelected">Выбрана тема:</string>
     <string name="maroonColor">Бордовая</string>
+    <string name="lilacColor">Сиреневая</string>
     <string name="emeraldColor">Изумрудная</string>
     <string name="lightGreenColor">Светло-зелёная</string>
     <string name="blackColor">Чёрная</string>

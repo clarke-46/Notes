@@ -20,6 +20,12 @@
         <item name="colorAccent">@color/orange</item>
     </style>
 
+    <style name="MyTheme.Lilac" parent="Theme.AppCompat.DayNight">
+        <item name="colorPrimary">@color/lilacNight</item>
+        <item name="colorPrimaryDark">@color/lilacDarkNight</item>
+        <item name="colorAccent">@color/lilacBright</item>
+    </style>
+
     <style name="MyTheme.Emerald" parent="MyTheme">
         <item name="colorPrimary">@color/emeraldNight</item>
         <item name="colorPrimaryDark">@color/emeraldDarkNight</item>

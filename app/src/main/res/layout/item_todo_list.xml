@@ -40,12 +40,11 @@
                 android:layout_toStartOf="@id/clearButton"
                 android:layout_toEndOf="@id/checkButton"
                 android:layout_marginStart="10dp"
-                android:layout_marginBottom="5dp"
-                android:paddingBottom="10dp"
+                android:paddingVertical="9dp"
+                android:layout_centerVertical="true"
                 android:text="hello"
                 android:textSize="17sp"
-                android:inputType="textMultiLine"
-                android:maxLines="4" />
+                android:inputType="textMultiLine" />
 
             <ImageView
                 android:id="@+id/clearButton"

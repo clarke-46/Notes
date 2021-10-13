@@ -24,7 +24,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -45,7 +44,6 @@ import java.util.Objects;
 
 public class AddingNewNoteActivity extends AppCompatActivity implements TodoAdapter.ItemClicked {
 
-//    private ScrollView scrollView;
     private EditText titleAdding;
     private EditText subtitleAdding;
     private CheckBox deadlineCheckBox;
@@ -80,9 +78,6 @@ public class AddingNewNoteActivity extends AppCompatActivity implements TodoAdap
     @RequiresApi(api = Build.VERSION_CODES.Q)
     private void init() {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-
-//        scrollView = findViewById(R.id.scrollable);
-//        scrollView.scrollToDescendant(deadlineEditText);
 
         titleAdding = findViewById(R.id.titleAdding);
         subtitleAdding = findViewById(R.id.subtitleAdding);

@@ -30,6 +30,10 @@
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/drawable/ic_baseline_clear_colored_24.xml" value="0.2203125" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/drawable/ic_baseline_clear_white_24.xml" value="0.2203125" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/drawable/ic_baseline_format_bold_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/drawable/ic_baseline_format_italic_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/drawable/ic_baseline_format_strikethrough_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/drawable/ic_baseline_format_underlined_24.xml" value="0.2203125" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/drawable/ic_baseline_save_24.xml" value="0.2169230769230769" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.18425925925925926" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.2203125" />
@@ -72,7 +76,7 @@
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/activity_drawer.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/activity_new_password.xml" value="0.16666666666666666" />
-        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/activity_password.xml" value="0.22" />
+        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/activity_password.xml" value="0.15" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/activity_reminder.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/activity_search.xml" value="0.2" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/activity_setting.xml" value="0.16666666666666666" />

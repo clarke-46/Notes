@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">Notes</string>
+    <string name="app_name" translatable="false">Notie-Notes</string>
     <string name="enterPinTxt">Enter your password:</string>
     <string name="one" translatable="false">1</string>
     <string name="two" translatable="false">2</string>
@@ -26,12 +26,8 @@
     <string name="requestPasswordExplanation">(If the password isn`t requested, it is still stored in the system. If you don`t remember your password, change it before enabling this feature.)</string>
 
     <string name="fingerprint_authentication">Fingerprint authentication</string>
-    <string name="fingerprint_explanation">(This feature works if the password is requested.)</string>
     <string name="toast_authentication_failed">Authentication failed, please try again</string>
-    <string name="toast_error">Error:</string>
-    <string name="toast_help">Help:</string>
     <string name="toast_authentication_not_supported">Your device doesn`t support fingerprint authentication</string>
-    <string name="toast_authentication_permission">Please provide the fingerprint permission</string>
     <string name="toast_authentication_settings">Please check lockscreen settings on your device</string>
 
     <string name="design">Design</string>
@@ -43,6 +39,7 @@
     <string name="themeSelection">Theme selection</string>
     <string name="toastThemeSelected">Theme selected:</string>
     <string name="maroonColor">Maroon</string>
+    <string name="lilacColor">Lilac</string>
     <string name="emeraldColor">Emerald</string>
     <string name="lightGreenColor">Light green</string>
     <string name="blackColor">Black</string>

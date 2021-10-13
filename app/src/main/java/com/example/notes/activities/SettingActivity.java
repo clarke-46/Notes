@@ -81,6 +81,8 @@ public class SettingActivity extends AppCompatActivity {
     private void enableFingerprintAuthentication() {
         fingerprintSwitch = findViewById(R.id.fingerprintSwitch);
 
+        fingerprintSwitch.setEnabled(requestPasswordSwitch.isChecked());
+
         SharedPreferences fingerprintPreferences = getSharedPreferences(FINGERPRINT_KEY, MODE_PRIVATE);
         SharedPreferences.Editor fingerprintEditor = fingerprintPreferences.edit();
 
@@ -153,8 +155,9 @@ public class SettingActivity extends AppCompatActivity {
     private void changeTheme() {
         themeText = findViewById(R.id.colorThemeText);
 
-        String[] themes = {getString(R.string.maroonColor), getString(R.string.emeraldColor),
-                getString(R.string.lightGreenColor), getString(R.string.blackColor)};
+        String[] themes = {getString(R.string.maroonColor), getString(R.string.lilacColor),
+                getString(R.string.emeraldColor), getString(R.string.lightGreenColor),
+                getString(R.string.blackColor)};
 
         themeText.setOnClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
@@ -164,6 +167,10 @@ public class SettingActivity extends AppCompatActivity {
                             case "Maroon":
                             case "Бордовая":
                                 selectedThemeIndex = 1;
+                                break;
+                            case "Lilac":
+                            case "Сиреневая":
+                                selectedThemeIndex = 5;
                                 break;
                             case "Emerald":
                             case "Изумрудная":

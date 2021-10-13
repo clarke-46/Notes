@@ -49,16 +49,14 @@ public class FingerprintHelper extends FingerprintManager.AuthenticationCallback
     public void onAuthenticationError(int errorCode, CharSequence errString) {
         super.onAuthenticationError(errorCode, errString);
 
-        Toast.makeText(context, context.getString(R.string.toast_error) + "\n" + errString,
-                Toast.LENGTH_LONG).show();
+        Toast.makeText(context, errString, Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void onAuthenticationHelp(int helpCode, CharSequence helpString) {
         super.onAuthenticationHelp(helpCode, helpString);
 
-        Toast.makeText(context, context.getString(R.string.toast_help) + "\n" + helpString,
-                Toast.LENGTH_LONG).show();
+        Toast.makeText(context, helpString, Toast.LENGTH_LONG).show();
     }
 
     @Override

@@ -5,11 +5,9 @@ import static com.example.notes.activities.SettingActivity.FINGERPRINT_KEY;
 import static com.example.notes.activities.SettingActivity.HAVING_PASSWORD_KEY;
 import static com.example.notes.activities.SettingActivity.IS_CHECKED;
 
-import android.Manifest;
 import android.app.KeyguardManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -23,7 +21,6 @@ import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
 import com.example.notes.App;
 import com.example.notes.FingerprintHelper;
@@ -256,12 +253,6 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
                 // проверка наличия датчика отпечатка пальца на устройстве
                 if (!fingerprintManager.isHardwareDetected()) {
                     Toast.makeText(PasswordActivity.this, R.string.toast_authentication_not_supported,
-                            Toast.LENGTH_LONG).show();
-                }
-                // проверка предоставления пользователем разрешения приложению
-                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.USE_FINGERPRINT)
-                        != PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(PasswordActivity.this, R.string.toast_authentication_permission,
                             Toast.LENGTH_LONG).show();
                 }
                 // проверка настроек экрана блокировки на устройстве
