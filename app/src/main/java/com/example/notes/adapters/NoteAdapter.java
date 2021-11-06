@@ -121,6 +121,14 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
 
         long update = note.getUpdate();
         holder.updateString.setText(getDate(update, context));
+
+        if (note.getColor() != 0) {
+            if (note.getColor() == R.color.transparent) {
+                holder.cardView.setCardBackgroundColor(ContextCompat.getColor(context, R.color.cardViewBackground));
+            } else {
+                holder.cardView.setCardBackgroundColor(ContextCompat.getColor(context, note.getColor()));
+            }
+        }
     }
 
     private String getDate(long time, Context context) {

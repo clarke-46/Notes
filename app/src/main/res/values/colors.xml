@@ -48,4 +48,6 @@
     <color name="greenPastelPaler">#DCF3D6</color>
     <color name="greenGray">#789370</color>
     <color name="greenGrayDarker">#657A5F</color>
+
+    <color name="cardViewBackground">#FFFFFF</color>
 </resources>

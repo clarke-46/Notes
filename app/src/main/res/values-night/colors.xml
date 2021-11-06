@@ -8,4 +8,6 @@
     <color name="skyBluePale">#2F565D</color>
     <color name="bluePale">#1F3C5E</color>
     <color name="violetPale">#432D5E</color>
+
+    <color name="cardViewBackground">#3A3A3A</color>
 </resources>

@@ -195,6 +195,8 @@ public class AddingNewNoteActivity extends AppCompatActivity implements TodoAdap
         imageColor7 = findViewById(R.id.imageColor7);
         imageColor8 = findViewById(R.id.imageColor8);
 
+        selectedColor = R.color.transparent;
+
         imageColor1.setOnClickListener(view -> setTransparentColor());
 
         imageColor2.setOnClickListener(view -> setPinkColor());
