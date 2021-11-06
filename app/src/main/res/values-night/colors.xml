@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Colors for notes background: -->
+    <color name="pinkPale">#671C3A</color>
+    <color name="deepOrangePale">#6B3C2E</color>
+    <color name="yellowPale">#625C1E</color>
+    <color name="greenPale">#2D471F</color>
+    <color name="skyBluePale">#2F565D</color>
+    <color name="bluePale">#1F3C5E</color>
+    <color name="violetPale">#432D5E</color>
+</resources>

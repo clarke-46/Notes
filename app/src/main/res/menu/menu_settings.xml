@@ -18,6 +18,6 @@
         android:id="@+id/action_settings"
         android:title="@string/settings"
         android:icon="@drawable/ic_baseline_settings_24"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="collapseActionView"/>
 
 </menu>

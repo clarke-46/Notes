@@ -1,4 +1,4 @@
-package com.example.notes;
+package com.example.notes.adapters;
 
 import android.content.Context;
 import android.graphics.Paint;
@@ -16,6 +16,9 @@ import android.widget.RadioButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.notes.R;
+import com.example.notes.TodoList;
 
 import java.util.ArrayList;
 

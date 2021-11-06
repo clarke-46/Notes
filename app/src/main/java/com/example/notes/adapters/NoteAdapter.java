@@ -1,4 +1,4 @@
-package com.example.notes;
+package com.example.notes.adapters;
 
 import static com.example.notes.activities.MainActivity.viewModel;
 
@@ -19,6 +19,9 @@ import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.notes.Note;
+import com.example.notes.R;
+import com.example.notes.TodoList;
 import com.example.notes.activities.AddingNewNoteActivity;
 
 import org.jetbrains.annotations.NotNull;
@@ -37,14 +40,16 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     private Timer timer;
     private List<Note> searchedNotes;
 
+    public static boolean savingUpdate = false;
+    private final Calendar currentCalendar = Calendar.getInstance();
+
     public static final String EXTRA_ID = "ID";
     public static final String EXTRA_TITLE = "TITLE";
     public static final String EXTRA_SUBTITLE = "SUBTITLE";
     public static final String EXTRA_DEADLINE_CHECKBOX = "CHECKBOX";
     public static final String EXTRA_DEADLINE = "DEADLINE";
     public static final String EXTRA_TODO_LIST = "TODO_LIST";
-    public static boolean savingUpdate = false;
-    private final Calendar currentCalendar = Calendar.getInstance();
+    public static final String EXTRA_COLOR = "COLOR";
 
     public NoteAdapter(Context context) {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -229,6 +234,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
                 intent.putExtra(EXTRA_DEADLINE_CHECKBOX, note.isDeadlineCheckbox());
                 intent.putExtra(EXTRA_DEADLINE, note.getDeadline());
                 intent.putExtra(EXTRA_TODO_LIST, note.getTodoLists());
+                intent.putExtra(EXTRA_COLOR, note.getColor());
                 v.getContext().startActivity(intent);
             });
         }

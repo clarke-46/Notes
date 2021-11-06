@@ -52,6 +52,7 @@
     <string name="toastNoApp">Нет приложения для отправки</string>
     <string name="toastChooseApp">Выберите приложение для отправки</string>
     <string name="add_item">добавить элемент</string>
+    <string name="background_color">Цвет фона</string>
 
     <string name="search">Поиск</string>
     <string name="search_notes">Поиск заметок</string>

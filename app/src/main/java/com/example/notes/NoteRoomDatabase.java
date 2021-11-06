@@ -13,7 +13,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {Note.class}, version = 2)
+@Database(entities = {Note.class}, version = 3)
 @TypeConverters({Converters.class})
 public abstract class NoteRoomDatabase extends RoomDatabase {
 
@@ -29,7 +29,7 @@ public abstract class NoteRoomDatabase extends RoomDatabase {
                 if (database == null) {
                     database = Room.databaseBuilder(context.getApplicationContext(),
                             NoteRoomDatabase.class, "database_notes3")
-                            .addMigrations(NoteRoomDatabase.MIGRATION_1_2)
+                            .addMigrations(NoteRoomDatabase.MIGRATION_1_2, NoteRoomDatabase.MIGRATION_2_3)
                             .allowMainThreadQueries()
                             .build();
                 }
@@ -42,6 +42,13 @@ public abstract class NoteRoomDatabase extends RoomDatabase {
         @Override
         public void migrate(@NonNull SupportSQLiteDatabase database) {
             database.execSQL("ALTER TABLE notes ADD COLUMN todoLists TEXT");
+        }
+    };
+
+    public static final Migration MIGRATION_2_3 = new Migration(2, 3) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            database.execSQL("ALTER TABLE notes ADD COLUMN background_color INTEGER");
         }
     };
 }

@@ -15,6 +15,16 @@
     <color name="red">#F44336</color>
     <color name="yellow">#FFC107</color>
 
+    <!-- Colors for notes background: -->
+    <color name="pinkPale">#FFDDEB</color>
+    <color name="deepOrangePale">#FFDFD5</color>
+    <color name="yellowPale">#FFF9C8</color>
+    <color name="greenPale">#DEF3C5</color>
+    <color name="skyBluePale">#DAFBFF</color>
+    <color name="bluePale">#D9E8FF</color>
+    <color name="violetPale">#DFDAFF</color>
+
+    <!-- Colors for themes: -->
     <color name="maroon">#8F0434</color>
     <color name="maroonDark">#670D2C</color>
     <color name="maroonNight">#4A0920</color>
@@ -33,9 +43,9 @@
     <color name="emeraldDarkNight">#024341</color>
     <color name="lavenderBlue">#C3C3F8</color>
 
-    <color name="greenLight">#81C147</color>
+    <color name="greenBright">#81C147</color>
     <color name="greenPastel">#BEE9B4</color>
     <color name="greenPastelPaler">#DCF3D6</color>
-    <color name="grayGreen">#789370</color>
-    <color name="grayGreenDarker">#657A5F</color>
+    <color name="greenGray">#789370</color>
+    <color name="greenGrayDarker">#657A5F</color>
 </resources>

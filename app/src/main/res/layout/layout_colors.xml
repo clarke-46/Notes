@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:paddingBottom="12dp"
+    android:paddingHorizontal="12dp"
+    android:orientation="horizontal"
+    android:baselineAligned="false">
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <View
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/circle_view" />
+
+        <ImageView
+            android:id="@+id/imageColor1"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:padding="7dp"
+            android:src="@drawable/ic_baseline_check_24" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <View
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/circle_view"
+            android:backgroundTint="@color/pinkPale" />
+
+        <ImageView
+            android:id="@+id/imageColor2"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:padding="7dp" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <View
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/circle_view"
+            android:backgroundTint="@color/deepOrangePale" />
+
+        <ImageView
+            android:id="@+id/imageColor3"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:padding="7dp" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <View
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/circle_view"
+            android:backgroundTint="@color/yellowPale" />
+
+        <ImageView
+            android:id="@+id/imageColor4"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:padding="7dp" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <View
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/circle_view"
+            android:backgroundTint="@color/greenPale" />
+
+        <ImageView
+            android:id="@+id/imageColor5"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:padding="7dp" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <View
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/circle_view"
+            android:backgroundTint="@color/skyBluePale" />
+
+        <ImageView
+            android:id="@+id/imageColor6"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:padding="7dp" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <View
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/circle_view"
+            android:backgroundTint="@color/bluePale" />
+
+        <ImageView
+            android:id="@+id/imageColor7"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:padding="7dp" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/circle_view"
+            android:backgroundTint="@color/violetPale" />
+
+        <ImageView
+            android:id="@+id/imageColor8"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:padding="7dp" />
+
+    </FrameLayout>
+
+</LinearLayout>

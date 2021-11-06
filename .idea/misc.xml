@@ -6,6 +6,7 @@
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/drawable/background.xml" value="0.2203125" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/drawable/background_delete.xml" value="0.2203125" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/drawable/background_reminder.xml" value="0.2203125" />
+        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/drawable/border.xml" value="0.18703703703703703" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/drawable/border_bottom_null.xml" value="0.2111111111111111" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/drawable/btn_bg.xml" value="0.18425925925925926" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/drawable/btn_sel.xml" value="0.18425925925925926" />
@@ -34,6 +35,7 @@
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/drawable/ic_baseline_format_italic_24.xml" value="0.2203125" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/drawable/ic_baseline_format_strikethrough_24.xml" value="0.2203125" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/drawable/ic_baseline_format_underlined_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.18703703703703703" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/drawable/ic_baseline_save_24.xml" value="0.2169230769230769" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.18425925925925926" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.2203125" />
@@ -70,17 +72,22 @@
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout-land/activity_setting.xml" value="0.15" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout-v23/activity_adding_new_note.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout-v23/item_todo_list.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/activity_adding_new_note.xml" value="0.22" />
+        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/activity_adding_new_note.xml" value="0.18" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/activity_alarm.xml" value="0.25" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/activity_backup.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/activity_drawer.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/activity_new_password.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/activity_main_nav.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/activity_main_navigation.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/activity_new_password.xml" value="0.2" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/activity_password.xml" value="0.15" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/activity_reminder.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/activity_search.xml" value="0.2" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/activity_setting.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/app_bar_drawer.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/app_bar_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/bottom_sheet_background_colors.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/bottom_sheet_colors.xml" value="0.2" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/content_drawer.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/custom_backup_dialog.xml" value="0.22" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/custom_deadline_dialog.xml" value="0.20416666666666666" />
@@ -89,6 +96,9 @@
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/dialog_content.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/dialog_import.xml" value="0.25" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/dialog_new_folder.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/dialog_reminder.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/dialog_reminder_date.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/dialog_reminder_time.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/dialog_save.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/drawer.xml" value="0.22" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/fragment_slideshow.xml" value="0.20416666666666666" />
@@ -104,16 +114,20 @@
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/layout_miscellaneous.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/loading.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/nav_header_main.xml" value="0.22" />
+        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/reminder_dialog.xml" value="0.2" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/spinner_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/splitter.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/layout/topbar.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/menu/activity_main_drawer.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/menu/activity_main_drawer.xml" value="0.18" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/menu/drawer.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/menu/formatting.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/menu/menu_save_note.xml" value="0.2" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/menu/menu_save_reminder.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/menu/menu_search_notes.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/menu/menu_settings.xml" value="0.2" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/menu/notes_menu_search.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/menu/text_formats.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/lenie/AndroidStudioProjects/Notes/app/src/main/res/xml/searchable.xml" value="0.20416666666666666" />
       </map>
     </option>

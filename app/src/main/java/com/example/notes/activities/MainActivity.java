@@ -16,12 +16,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.notes.NoteAdapter;
+import com.example.notes.adapters.NoteAdapter;
 import com.example.notes.NoteViewModel;
 import com.example.notes.R;
 import com.example.notes.Themes;
@@ -108,11 +107,11 @@ public class MainActivity extends AppCompatActivity {
                 viewModel.getListNotes().observe(this, notes -> adapter.setNotes(notes));
                 break;
             case 2:
-                viewModel.getListNotesSortUpdate().observe((LifecycleOwner) this, notes ->
+                viewModel.getListNotesSortUpdate().observe(this, notes ->
                         adapter.setNotes(notes));
                 break;
             case 3:
-                viewModel.getListNotesSortAlphabetically().observe((LifecycleOwner) this, notes ->
+                viewModel.getListNotesSortAlphabetically().observe(this, notes ->
                         adapter.setNotes(notes));
                 break;
             default:
@@ -131,21 +130,26 @@ public class MainActivity extends AppCompatActivity {
                         case "по умолчанию":
                         case "by default":
                             selectedSortIndex = 1;
+                            applySortingNotes(getApplicationContext(), selectedSortIndex);
+                            dialog.cancel();
                             break;
                         case "по дате изменения":
                         case "by update date":
                             selectedSortIndex = 2;
+                            applySortingNotes(getApplicationContext(), selectedSortIndex);
+                            dialog.cancel();
                             break;
                         case "по алфавиту":
                         case "alphabetically":
                             selectedSortIndex = 3;
+                            applySortingNotes(getApplicationContext(), selectedSortIndex);
+                            dialog.cancel();
                             break;
                     }
                     Toast.makeText(MainActivity.this, getString(R.string.toast_notes_sorted) +
                             " " + sorting[item], Toast.LENGTH_SHORT).show();
                 })
-                .setPositiveButton(R.string.ok, (dialog, id) ->
-                    applySortingNotes(getApplicationContext(), selectedSortIndex));
+                .setNegativeButton(R.string.cancel, (dialog, id) -> dialog.cancel());
 
         AlertDialog dialog = builder.create();
         dialog.show();

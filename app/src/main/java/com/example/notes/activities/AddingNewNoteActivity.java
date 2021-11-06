@@ -1,13 +1,14 @@
 package com.example.notes.activities;
 
-import static com.example.notes.NoteAdapter.EXTRA_DEADLINE;
-import static com.example.notes.NoteAdapter.EXTRA_DEADLINE_CHECKBOX;
-import static com.example.notes.NoteAdapter.EXTRA_ID;
-import static com.example.notes.NoteAdapter.EXTRA_SUBTITLE;
-import static com.example.notes.NoteAdapter.EXTRA_TITLE;
-import static com.example.notes.NoteAdapter.EXTRA_TODO_LIST;
-import static com.example.notes.NoteAdapter.savingUpdate;
 import static com.example.notes.activities.MainActivity.viewModel;
+import static com.example.notes.adapters.NoteAdapter.EXTRA_COLOR;
+import static com.example.notes.adapters.NoteAdapter.EXTRA_DEADLINE;
+import static com.example.notes.adapters.NoteAdapter.EXTRA_DEADLINE_CHECKBOX;
+import static com.example.notes.adapters.NoteAdapter.EXTRA_ID;
+import static com.example.notes.adapters.NoteAdapter.EXTRA_SUBTITLE;
+import static com.example.notes.adapters.NoteAdapter.EXTRA_TITLE;
+import static com.example.notes.adapters.NoteAdapter.EXTRA_TODO_LIST;
+import static com.example.notes.adapters.NoteAdapter.savingUpdate;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
@@ -25,18 +26,20 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.notes.Note;
 import com.example.notes.R;
 import com.example.notes.Themes;
-import com.example.notes.TodoAdapter;
 import com.example.notes.TodoList;
+import com.example.notes.adapters.TodoAdapter;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -53,15 +56,21 @@ public class AddingNewNoteActivity extends AppCompatActivity implements TodoAdap
     private RecyclerView todoListAdding;
     private ImageView addTodo;
     private LinearLayout addItemTodo;
+    private ScrollView scrollable;
+    private View colorsLayout;
+    private ImageView imageColor1, imageColor2, imageColor3, imageColor4, imageColor5, imageColor6,
+            imageColor7, imageColor8;
+
+    private RecyclerView.LayoutManager layoutManager;
 
     private final Calendar calendar = Calendar.getInstance();
     private long deadlineDate;
+    private final boolean[] changeDeadlineVisibility = {true};
     public int idUpdate;
     private ArrayList<TodoList> todoList;
     private TodoAdapter todoAdapter;
-    private RecyclerView.LayoutManager layoutManager;
-
-    private final boolean[] changeDeadlineVisibility = {true};
+    private final boolean[] changeColorsVisibility = {true};
+    private int selectedColor;
 
     @RequiresApi(api = Build.VERSION_CODES.Q)
     @Override
@@ -71,6 +80,7 @@ public class AddingNewNoteActivity extends AppCompatActivity implements TodoAdap
         setContentView(R.layout.activity_adding_new_note);
 
         init();
+        initColors();
         updateNote();
     }
 
@@ -115,7 +125,6 @@ public class AddingNewNoteActivity extends AppCompatActivity implements TodoAdap
         todoListAdding.setAdapter(todoAdapter);
 
         if (todoList.size() > 0) {
-            addTodo.animate().alpha(0.5f).start();
             addTodo.setEnabled(false);
         }
 
@@ -124,7 +133,6 @@ public class AddingNewNoteActivity extends AppCompatActivity implements TodoAdap
             TodoAdapter.f = 1;
             todoAdapter.notifyDataSetChanged();
             addItemTodo.setVisibility(View.VISIBLE);
-            addTodo.animate().alpha(0.5f).start();
             addTodo.setEnabled(false);
         });
 
@@ -136,7 +144,6 @@ public class AddingNewNoteActivity extends AppCompatActivity implements TodoAdap
             todoList.add(new TodoList(null, false));
             TodoAdapter.f = 1;
             todoAdapter.notifyDataSetChanged();
-            addTodo.animate().alpha(0.5f).start();
             addTodo.setEnabled(false);
         });
     }
@@ -175,12 +182,154 @@ public class AddingNewNoteActivity extends AppCompatActivity implements TodoAdap
         deadlineDate = calendar.getTimeInMillis();
     }
 
+    @SuppressLint("ResourceAsColor")
+    private void initColors() {
+        scrollable = findViewById(R.id.scrollable);
+        colorsLayout = findViewById(R.id.colorsLayout);
+        imageColor1 = findViewById(R.id.imageColor1);
+        imageColor2 = findViewById(R.id.imageColor2);
+        imageColor3 = findViewById(R.id.imageColor3);
+        imageColor4 = findViewById(R.id.imageColor4);
+        imageColor5 = findViewById(R.id.imageColor5);
+        imageColor6 = findViewById(R.id.imageColor6);
+        imageColor7 = findViewById(R.id.imageColor7);
+        imageColor8 = findViewById(R.id.imageColor8);
+
+        imageColor1.setOnClickListener(view -> setTransparentColor());
+
+        imageColor2.setOnClickListener(view -> setPinkColor());
+
+        imageColor3.setOnClickListener(view -> setDeepOrangeColor());
+
+        imageColor4.setOnClickListener(view -> setYellowColor());
+
+        imageColor5.setOnClickListener(view -> setGreenColor());
+
+        imageColor6.setOnClickListener(view -> setSkyBlueColor());
+
+        imageColor7.setOnClickListener(view -> setBlueColor());
+
+        imageColor8.setOnClickListener(view -> setVioletColor());
+    }
+
+    private void setTransparentColor() {
+        selectedColor = R.color.transparent;
+        imageColor1.setImageResource(R.drawable.ic_baseline_check_24);
+        imageColor2.setImageResource(0);
+        imageColor3.setImageResource(0);
+        imageColor4.setImageResource(0);
+        imageColor5.setImageResource(0);
+        imageColor6.setImageResource(0);
+        imageColor7.setImageResource(0);
+        imageColor8.setImageResource(0);
+        setColor();
+    }
+
+    private void setPinkColor() {
+        selectedColor = R.color.pinkPale;
+        imageColor1.setImageResource(0);
+        imageColor2.setImageResource(R.drawable.ic_baseline_check_24);
+        imageColor3.setImageResource(0);
+        imageColor4.setImageResource(0);
+        imageColor5.setImageResource(0);
+        imageColor6.setImageResource(0);
+        imageColor7.setImageResource(0);
+        imageColor8.setImageResource(0);
+        setColor();
+    }
+
+    private void setDeepOrangeColor() {
+        selectedColor = R.color.deepOrangePale;
+        imageColor1.setImageResource(0);
+        imageColor2.setImageResource(0);
+        imageColor3.setImageResource(R.drawable.ic_baseline_check_24);
+        imageColor4.setImageResource(0);
+        imageColor5.setImageResource(0);
+        imageColor6.setImageResource(0);
+        imageColor7.setImageResource(0);
+        imageColor8.setImageResource(0);
+        setColor();
+    }
+
+    private void setYellowColor() {
+        selectedColor = R.color.yellowPale;
+        imageColor1.setImageResource(0);
+        imageColor2.setImageResource(0);
+        imageColor3.setImageResource(0);
+        imageColor4.setImageResource(R.drawable.ic_baseline_check_24);
+        imageColor5.setImageResource(0);
+        imageColor6.setImageResource(0);
+        imageColor7.setImageResource(0);
+        imageColor8.setImageResource(0);
+        setColor();
+    }
+
+    private void setGreenColor() {
+        selectedColor = R.color.greenPale;
+        imageColor1.setImageResource(0);
+        imageColor2.setImageResource(0);
+        imageColor3.setImageResource(0);
+        imageColor4.setImageResource(0);
+        imageColor5.setImageResource(R.drawable.ic_baseline_check_24);
+        imageColor6.setImageResource(0);
+        imageColor7.setImageResource(0);
+        imageColor8.setImageResource(0);
+        setColor();
+    }
+
+    private void setSkyBlueColor() {
+        selectedColor = R.color.skyBluePale;
+        imageColor1.setImageResource(0);
+        imageColor2.setImageResource(0);
+        imageColor3.setImageResource(0);
+        imageColor4.setImageResource(0);
+        imageColor5.setImageResource(0);
+        imageColor6.setImageResource(R.drawable.ic_baseline_check_24);
+        imageColor7.setImageResource(0);
+        imageColor8.setImageResource(0);
+        setColor();
+    }
+
+    private void setBlueColor() {
+        selectedColor = R.color.bluePale;
+        imageColor1.setImageResource(0);
+        imageColor2.setImageResource(0);
+        imageColor3.setImageResource(0);
+        imageColor4.setImageResource(0);
+        imageColor5.setImageResource(0);
+        imageColor6.setImageResource(0);
+        imageColor7.setImageResource(R.drawable.ic_baseline_check_24);
+        imageColor8.setImageResource(0);
+        setColor();
+    }
+
+    private void setVioletColor() {
+        selectedColor = R.color.violetPale;
+        imageColor1.setImageResource(0);
+        imageColor2.setImageResource(0);
+        imageColor3.setImageResource(0);
+        imageColor4.setImageResource(0);
+        imageColor5.setImageResource(0);
+        imageColor6.setImageResource(0);
+        imageColor7.setImageResource(0);
+        imageColor8.setImageResource(R.drawable.ic_baseline_check_24);
+        setColor();
+    }
+
+    private void setColor() {
+        scrollable.setBackgroundColor(ContextCompat.getColor(this, selectedColor));
+        colorsLayout.setVisibility(View.GONE);
+        changeColorsVisibility[0] = true;
+    }
+
     private void saveNote() {
         Note note = new Note(titleAdding.getText().toString(), subtitleAdding.getText().toString(),
                 deadlineCheckBox.isChecked(), deadlineDate);
         long update = System.currentTimeMillis();
         note.setUpdate(update);
         note.setTodoLists(todoList);
+        note.setColor(selectedColor);
+
         if (savingUpdate) {
             note.setId(idUpdate);
             viewModel.update(note);
@@ -190,6 +339,7 @@ public class AddingNewNoteActivity extends AppCompatActivity implements TodoAdap
         }
     }
 
+    @SuppressLint("NonConstantResourceId")
     private void updateNote() {
         if (savingUpdate) {
             Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.editingNote);
@@ -204,6 +354,7 @@ public class AddingNewNoteActivity extends AppCompatActivity implements TodoAdap
                     (long) Objects.requireNonNull(getIntent().getSerializableExtra(EXTRA_DEADLINE));
             ArrayList<TodoList> listTodo =
                     (ArrayList<TodoList>) Objects.requireNonNull(getIntent().getSerializableExtra(EXTRA_TODO_LIST));
+            int color = (int) Objects.requireNonNull(getIntent().getSerializableExtra(EXTRA_COLOR));
 
             titleAdding.setText(title);
             subtitleAdding.setText(subtitle);
@@ -219,9 +370,36 @@ public class AddingNewNoteActivity extends AppCompatActivity implements TodoAdap
             todoList.addAll(listTodo);
             if (listTodo.size() > 0) {
                 addItemTodo.setVisibility(View.VISIBLE);
-                addTodo.animate().alpha(0.5f).start();
                 addTodo.setEnabled(false);
             }
+
+            switch (color) {
+                case R.color.transparent:
+                    setTransparentColor();
+                    break;
+                case R.color.pinkPale:
+                    setPinkColor();
+                    break;
+                case R.color.deepOrangePale:
+                    setDeepOrangeColor();
+                    break;
+                case R.color.yellowPale:
+                    setYellowColor();
+                    break;
+                case R.color.greenPale:
+                    setGreenColor();
+                    break;
+                case R.color.skyBluePale:
+                    setSkyBlueColor();
+                    break;
+                case R.color.bluePale:
+                    setBlueColor();
+                    break;
+                case R.color.violetPale:
+                    setVioletColor();
+                    break;
+            }
+            selectedColor = color;
         }
     }
 
@@ -301,11 +479,28 @@ public class AddingNewNoteActivity extends AppCompatActivity implements TodoAdap
             }
             return true;
         }
+        if (id == R.id.action_colors) {
+            if (changeColorsVisibility[0]) {
+                colorsLayout.setVisibility(View.VISIBLE);
+                changeColorsVisibility[0] = false;
+            } else {
+                colorsLayout.setVisibility(View.GONE);
+                changeColorsVisibility[0] = true;
+            }
+            return true;
+        }
         if (id == android.R.id.home) {
             savingUpdate = false;
             finish();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        savingUpdate = false;
+        finish();
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -330,11 +525,9 @@ public class AddingNewNoteActivity extends AppCompatActivity implements TodoAdap
         todoAdapter.notifyDataSetChanged();
         if (todoList.isEmpty()) {
             addItemTodo.setVisibility(View.GONE);
-            addTodo.animate().alpha(1).start();
             addTodo.setEnabled(true);
         } else {
             addItemTodo.setVisibility(View.VISIBLE);
-            addTodo.animate().alpha(0.5f).start();
             addTodo.setEnabled(false);
         }
     }

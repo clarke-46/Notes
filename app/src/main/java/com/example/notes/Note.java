@@ -26,6 +26,9 @@ public class Note {
 
     private ArrayList<TodoList> todoLists;
 
+    @ColumnInfo(name = "background_color")
+    private int color;
+
     public Note(String title, String subtitle, boolean deadlineCheckbox, long deadline) {
         this.title = title;
         this.subtitle = subtitle;
@@ -71,5 +74,13 @@ public class Note {
 
     public void setTodoLists(ArrayList<TodoList> todoLists) {
         this.todoLists = todoLists;
+    }
+
+    public int getColor() {
+        return color;
+    }
+
+    public void setColor(int color) {
+        this.color = color;
     }
 }

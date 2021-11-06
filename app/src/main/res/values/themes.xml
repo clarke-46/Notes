@@ -37,7 +37,7 @@
     <style name="MyTheme.LightGreen" parent="Theme.AppCompat.DayNight">
         <item name="colorPrimary">@color/greenPastelPaler</item>
         <item name="colorPrimaryDark">@color/greenPastel</item>
-        <item name="colorAccent">@color/greenLight</item>
+        <item name="colorAccent">@color/greenBright</item>
     </style>
 
     <style name="TodoBackground">

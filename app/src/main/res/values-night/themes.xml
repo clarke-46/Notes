@@ -33,9 +33,9 @@
     </style>
 
     <style name="MyTheme.LightGreen" parent="Theme.AppCompat.DayNight">
-        <item name="colorPrimary">@color/grayGreen</item>
-        <item name="colorPrimaryDark">@color/grayGreenDarker</item>
-        <item name="colorAccent">@color/greenLight</item>
+        <item name="colorPrimary">@color/greenGray</item>
+        <item name="colorPrimaryDark">@color/greenGrayDarker</item>
+        <item name="colorAccent">@color/greenBright</item>
     </style>
 
     <style name="TodoBackground">
